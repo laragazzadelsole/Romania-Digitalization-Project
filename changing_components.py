@@ -55,7 +55,6 @@ def safe_var(key):
 def survey_title_subtitle(header_config):
     st.title(header_config['survey_title'])
     st.write(header_config['survey_description'])
-    st.write(st.__version__)
 
 #@st.cache_data(persist=True)
 def create_question(jsonfile_name):

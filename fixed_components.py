@@ -19,16 +19,13 @@ def add_consent():
 
 
 def consent_form():
-    placeholder = st.empty()
-    with placeholder.container():
-        with st.expander("Consent", expanded=True):
-            st.markdown("""
-            By submitting the form below you agree to your data being used for research purposes. 
-            """)
-            agree = st.checkbox("I understand and consent.")
-            if agree:
-                st.markdown("You have consented. Select \"Next\" to start the survey.")
-                st.button('Next', on_click=add_consent)
+    st.markdown("""
+    By submitting the form below you agree to your data being used for research purposes. 
+    """)
+    agree = st.checkbox("I understand and consent.")
+    if agree:
+        st.markdown("You have consented. Select \"Next\" to start the survey.")
+        st.button('Next', on_click=add_consent)
 
 
 def user_full_name():
@@ -42,12 +39,9 @@ def user_professional_category():
     st.selectbox('Specify your professional category:', ('Policymaker', 'Expert', 'Entrepreneur/Manager'), key="professional_category")
 
 def personal_information():
-    placeholder = st.empty()
-    with placeholder.container():
-        with st.expander("Personal Information", expanded=True):
-            user_full_name()
-            user_position()
-            user_professional_category()
+    user_full_name()
+    user_position()
+    user_professional_category()
 
 def secrets_to_json():
     return {
@@ -79,41 +73,38 @@ CAPTION_INSTRUCTIONS = '''As illustrated in the table, you predicted that there'
 def instructions():
 
 # Create some example data
-    #data_container = st.container()
-    placeholder = st.empty()
-    with placeholder.container():
-        with st.expander("Instruction's example", expanded=True):
-            st.subheader(TITLE_INSTRUCTIONS)
-            st.write(SUBTITLE_INSTRUCTIONS)
+    
+    st.subheader(TITLE_INSTRUCTIONS)
+    st.write(SUBTITLE_INSTRUCTIONS)
 
-            st.subheader("Temperature Forecast Tomorrow in Your City")
-            st.write('_Please scroll on the table to see all available options._')
+    st.subheader("Temperature Forecast Tomorrow in Your City")
+    st.write('_Please scroll on the table to see all available options._')
 
-            #with data_container:
-            table, plot = st.columns([0.4, 0.6], gap = "large")
-            with table:
+    #with data_container:
+    table, plot = st.columns([0.4, 0.6], gap = "large")
+    with table:
 
-                # Create some example data as a Pandas DataFrame
-                values_column = list(range(10, 31))
-                zeros_column = [0 for _ in values_column]
-                data = {'Temperature': values_column, 'Probability': zeros_column}
-                df = pd.DataFrame(data)
+        # Create some example data as a Pandas DataFrame
+        values_column = list(range(10, 31))
+        zeros_column = [0 for _ in values_column]
+        data = {'Temperature': values_column, 'Probability': zeros_column}
+        df = pd.DataFrame(data)
 
-                df.at[0, "Temperature"] = '< 10'
-                df.at[20, "Temperature"] = '> 30'
-                df.at[13, "Probability"] = 5
-                df.at[14, "Probability"] = 15
-                df.at[15, "Probability"] = 45
-                df.at[16, "Probability"] = 20
-                df.at[17, "Probability"] = 15
+        df.at[0, "Temperature"] = '< 10'
+        df.at[20, "Temperature"] = '> 30'
+        df.at[13, "Probability"] = 5
+        df.at[14, "Probability"] = 15
+        df.at[15, "Probability"] = 45
+        df.at[16, "Probability"] = 20
+        df.at[17, "Probability"] = 15
 
-                df['Temperature'] = df['Temperature'].astype('str')
-                edited_data = st.data_editor(df, use_container_width=True, hide_index=True, disabled=('Temperature', "Probability"))
+        df['Temperature'] = df['Temperature'].astype('str')
+        edited_data = st.data_editor(df, use_container_width=True, hide_index=True, disabled=('Temperature', "Probability"))
 
-            st.write(CAPTION_INSTRUCTIONS)
+    st.write(CAPTION_INSTRUCTIONS)
 
-            with plot:
-                st.bar_chart(df, x = 'Temperature', y ='Probability')
-            
+    with plot:
+        st.bar_chart(df, x = 'Temperature', y ='Probability')
+    
 def submit(): 
     st.session_state['submit'] = True
