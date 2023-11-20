@@ -5,6 +5,7 @@
     },
     "question1": {
       "question_number": "Question 1",
+      "key_form": "key_form1",
       "title_question": "Question 1 - Take-up rate",
       "subtitle_question": "Consider that 100 eligible companies have been selected to participate to the Smart Specialisation Program. What percentages of firms do you think will enrol in the program?\n_Please allocate the probabilities in the cells corresponding to your beliefs._ ",
       "column_1": "SMEs enrolling %",
@@ -23,6 +24,7 @@
     },
       "question2": {
       "question_number": "Question 2",
+      "key_form": "key_form2",
       "title_question": "Question 2 - Full-time Employees",
       "subtitle_question": "On average, how much do you think that the total number of full-time employees would increase in the SMEs beneficiaries of the grant in the first 6 months after firms received the money, compared to non-beneficiaries firms from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._ ",
       "column_1": "Full-time Employees %",
@@ -42,6 +44,7 @@
 
       "question3": {
       "question_number": "Question 3",
+      "key_form": "key_form3",
       "title_question": "Question 3 - Labor Productivity",
       "subtitle_question": "On average, how much do you think that the labor productivity would increase in the SMEs that were offered the intervention in the first 6 months after firms received the money, compared to non-beneficiaries SMEs from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "Labor Productivity %",
@@ -60,6 +63,7 @@
     },
       "question4": {
       "question_number": "Question 4",
+      "key_form": "key_form4",
       "title_question": "Question 4 - Total Annual Sales Revenue",
       "subtitle_question": "On average, how much do you think that the total annual sales revenue would increase in the SMEs that were offered the intervention in the first 6 months after firms received the money, compared to non-beneficiaries SMEs from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "Annual Sales Revenue %",
@@ -78,6 +82,7 @@
     },
       "question5": {
       "question_number": "Question 5",
+      "key_form": "key_form5",
       "title_question": "Question 5 - Export",
       "subtitle_question": "**Considering ONLY SMEs that have ALREADY exported outside Romanian borders before the intervention.**  \nOn average, how much do you think that the export would increase in the SMEs beneficiaries of the grant that have already exported in the European Union or in the worldwide market in the first 6 months after firms received the money, compared to non-beneficiaries SMEs from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "Export  %",
@@ -96,6 +101,7 @@
     },
       "question6": {
       "question_number": "Question 6",
+      "key_form": "key_form6",
       "title_question": "Question 6 - New Exporting SMEs",
       "subtitle_question": "**Considering ONLY SMEs that have NEVER exported outside Romanian borders before the intervention.**  \nOn average, how many SMEs that benefited from the grant do you think would start exporting in European Union or in the worldwide market in the first 6 months after receiving the money, compared to non-beneficiaries SMEs from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "New Exporting SMEs %",
@@ -115,6 +121,7 @@
     
       "question7": {
       "question_number": "Question 7",
+      "key_form": "key_form7",
       "title_question": "Question 7 - Annual Profit",
       "subtitle_question": "On average, how much do you think that the annual profit would increase in the SMEs beneficiaries of the grant in the first 6 months after firms received the money, compared to non-beneficiaries SMEs from the comparison group?\n _Please allocate the probabilities in the cells corresponding to your beliefs._ ",
       "column_1": "Annual Profit %",
@@ -134,6 +141,7 @@
 
       "question8": {
       "question_number": "Question 8",
+      "key_form": "key_form8",
       "title_question": "Question 8 - E-Commerce",
       "subtitle_question": "**Considering ONLY SMEs that have NEVER used an e-commerce service before the intervention.**  \nOn average, how much do you think that the share of e-commerce users would increase in the SMEs beneficiaries of the grant in the first 6 months after they received the money, compared to non-beneficiaries firms from the comparison group? _Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "SMEs starting E-commerce %",
@@ -152,6 +160,7 @@
     },
       "question9": {
       "question_number": "Question 9",
+      "key_form": "key_form9",
       "title_question": "Question 9 - Electronic Invoices",
       "subtitle_question": "**Considering ONLY SMEs that have NEVER used electronic invoices before the intervention.**  \nOn average, how much do you think that the share of electronic invoices users would increase in the SMEs beneficiaries of the grant in the first 6 months after they received the money, compared to non-beneficiaries firms from the comparison group? _Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "SMEs using Electronic Invoices",
@@ -170,6 +179,7 @@
     }, 
     "question10": {
       "question_number": "Question 10",
+      "key_form": "key_form10",
       "title_question": "Question 10 - Digital Advertising",
       "subtitle_question": "**Considering ONLY SMEs that have NEVER used digital advertising before the intervention.**  \n On average, how much do you think that the share of digital advertising users would increase in the SMEs beneficiaries of the grant in the first 6 months after they received the money, compared to non-beneficiaries firms from the comparison group? _Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "SMEs using Digital Advertising %",

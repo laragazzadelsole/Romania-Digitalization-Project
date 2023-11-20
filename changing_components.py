@@ -57,8 +57,9 @@ def survey_title_subtitle(header_config):
     st.write(header_config['survey_description'])
     st.write(st.__version__)
 
-@st.cache_data(persist=True)
+#@st.cache_data(persist=True)
 def create_question(jsonfile_name):
+
     minor_value = str(jsonfile_name['minor_value'])
     min_value = float(jsonfile_name['min_value_graph'])
     max_value = float(jsonfile_name['max_value_graph'])
@@ -71,50 +72,52 @@ def create_question(jsonfile_name):
     x_axis.insert(0, minor_value)
 
     # Add major_value at the end
-    x_axis.append(major_value)
+    x_axis.append(major_value) 
 
     y_axis = np.zeros(len(x_axis))
     data = pd.DataFrame(list(zip(x_axis, y_axis)), columns=[jsonfile_name['column_1'], jsonfile_name['column_2']])
 
+# data_container = st.container()
+# placeholder = st.empty()
+# with placeholder.container():
+    # with st.expander(jsonfile_name['question_number'], expanded=True):
+
+    st.subheader(jsonfile_name['title_question'])
+    st.write(jsonfile_name['subtitle_question'])
     data_container = st.container()
-    placeholder = st.empty()
-    with placeholder.container():
-        with st.expander(jsonfile_name['question_number'], expanded=True):
+    with data_container:
+        table, plot = st.columns([0.4, 0.6], gap="large")
+        with table:
+            bins_grid = st.data_editor(data, key= jsonfile_name['key'], use_container_width=True, hide_index=True, disabled=[jsonfile_name['column_1']])
+            
+            # Initialize the counter
+            total_percentage = int(100)
+            # Calculate the new total sum
+            percentage_inserted= sum(bins_grid[jsonfile_name['column_2']])
+            # Calculate the difference in sum
+            percentage_difference = total_percentage - percentage_inserted
+            # Update the counter
+            total_percentage = percentage_difference
 
-            st.subheader(jsonfile_name['title_question'])
-            st.write(jsonfile_name['subtitle_question'])
-            data_container = st.container()
-            with data_container:
-                table, plot = st.columns([0.4, 0.6], gap="large")
-                with table:
-                    bins_grid = st.data_editor(data, key= jsonfile_name['key'], use_container_width=True, hide_index=True, disabled=[jsonfile_name['column_1']])
-                    
-                    # Initialize the counter
-                    total_percentage = int(100)
-                    # Calculate the new total sum
-                    percentage_inserted= sum(bins_grid[jsonfile_name['column_2']])
-                    # Calculate the difference in sum
-                    percentage_difference = total_percentage - percentage_inserted
-                    # Update the counter
-                    total_percentage = percentage_difference
+            # Display the counter
+            if percentage_difference >= 0:
+                st.write(f"**You still have to allocate {percentage_difference} percent probability.**")
+            else:
+                st.write(f'**:red[You have inserted {abs(percentage_difference)} percent more, please review your percentage distribution.]**')
 
-                    # Display the counter
-                    if percentage_difference >= 0:
-                        st.write(f"**You still have to allocate {percentage_difference} percent probability.**")
-                    else:
-                        st.write(f'**:red[You have inserted {abs(percentage_difference)} percent more, please review your percentage distribution.]**')
+            num_bins = len(bins_grid)
+            
+            
+        with plot:
+            st.bar_chart(bins_grid, x = jsonfile_name['column_1'], y = jsonfile_name['column_2'])
+        
+    st.write(jsonfile_name['effect_size'])
+    st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
 
-                    num_bins = len(bins_grid)
-                
-                with plot:
-                    st.bar_chart(bins_grid, x = jsonfile_name['column_1'], y = jsonfile_name['column_2'])
-                
-            #st.write(jsonfile_name['effect_size'])
-            #st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
-
-            # Return the updated DataFrame
-            updated_bins_df = pd.DataFrame(bins_grid)
-            return updated_bins_df, percentage_difference, num_bins
+    # Return the updated DataFrame
+    updated_bins_df = pd.DataFrame(bins_grid)
+    
+    return updated_bins_df, percentage_difference, num_bins
         
 def min_effect_size_question(jsonfile_name):
     st.write(jsonfile_name['effect_size'])
