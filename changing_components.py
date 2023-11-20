@@ -57,7 +57,7 @@ def survey_title_subtitle(header_config):
     st.write(header_config['survey_description'])
     st.write(st.__version__)
 
-#@st.cache_data
+@st.cache_data(persist=True)
 def create_question(jsonfile_name):
     minor_value = str(jsonfile_name['minor_value'])
     min_value = float(jsonfile_name['min_value_graph'])
@@ -109,26 +109,6 @@ def create_question(jsonfile_name):
                 with plot:
                     st.bar_chart(bins_grid, x = jsonfile_name['column_1'], y = jsonfile_name['column_2'])
                 
-                '''
-                with plot:
-                    
-                    # Create the figure with dynamic figsize
-                    fig, ax = plt.subplots(figsize=(4, 2.5))
-
-                    ax.bar(bins_grid[jsonfile_name['column_1']], bins_grid[jsonfile_name['column_2']])
-                    ax.set_xlabel(jsonfile_name['title_x_axis'], fontsize=7)
-                    ax.set_ylabel(jsonfile_name['title_y_axis'], fontsize=7)
-                    ax.set_title(jsonfile_name['title_barchart'], fontsize=7)
-                    ax.set_xticks(bins_grid[jsonfile_name['column_1']])
-                    ax.set_xticklabels(bins_grid[jsonfile_name['column_1']], fontsize=5, rotation=70)
-                    ax.set_yticks(range(0, 101, 10))
-                    ax.set_yticklabels(range(0, 101, 10), fontsize=5)
-
-                    fig.subplots_adjust(top=0.9, right=0.95)
-                    plt.tight_layout()
-                    st.pyplot(fig, use_container_width=True)
-            
-                '''
             #st.write(jsonfile_name['effect_size'])
             #st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
 

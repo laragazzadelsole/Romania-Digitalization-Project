@@ -115,25 +115,5 @@ def instructions():
             with plot:
                 st.bar_chart(df, x = 'Temperature', y ='Probability')
             
-                '''
-            # Display the distribution of probabilities with a bar chart 
-                fig, ax = plt.subplots(figsize=(4, 2.5))  # Adjust the figure size as needed
-
-                # Your data plotting code
-                ax.bar(edited_data['Temperature'], edited_data['Probability'])
-                ax.set_xlabel('Temperature', fontsize=7)  # Adjust fontsize as needed
-                ax.set_ylabel('Probability', fontsize=7)  # Adjust fontsize as needed
-                ax.set_title("Probability Distribution over Tomorrow's Temperatures", fontsize=7)  # Adjust fontsize as needed
-                ax.set_xticks(df['Temperature'])
-                ax.set_xticklabels(df['Temperature'], fontsize=6)  # Adjust fontsize as needed
-                ax.set_yticks(df['Probability'])
-                ax.set_yticklabels(df['Probability'], fontsize=6)
-                plt.tight_layout()
-
-                # Adjust the title and labels proportions
-                fig.subplots_adjust(top=0.9, right=0.95)  # Adjust the values as needed
-
-                st.pyplot(fig, use_container_width=True)
-                '''
 def submit(): 
     st.session_state['submit'] = True
