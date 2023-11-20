@@ -32,10 +32,10 @@ def consent_form():
 
 
 def user_full_name():
-    st.text_input("Please write your full name and surname:", key = 'user_full_name')
+    st.text_input("Please enter your full name and surname:", key = 'user_full_name')
 
 def user_position():
-    st.text_input("Please write your working position:", key = 'user_position')
+    st.text_input("Please enter your working title:", key = 'user_position')
 
 def user_professional_category():
     # Professional Category Checkbox
