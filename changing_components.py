@@ -129,11 +129,11 @@ def create_question(jsonfile_name):
 
                     fig.subplots_adjust(top=0.9, right=0.95)
                     plt.tight_layout()
-                    st.pyplot(fig, use_container_width=False)
+                    st.pyplot(fig, use_container_width=True)
             
            
             st.write(jsonfile_name['effect_size'])
-            st.number_input('Click to increase or decrease the counter.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
+            st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
 
             # Return the updated DataFrame
             updated_bins_df = pd.DataFrame(bins_grid)

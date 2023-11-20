@@ -64,4 +64,4 @@ if st.session_state['consent']:
 
     if st.session_state['submit']:
         
-        st.success(f"Thank you for completing the {header_config['survey_title']}!")
+        st.success(f"Thank you for completing the Survey on {header_config['survey_title']}!")

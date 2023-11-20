@@ -1,12 +1,12 @@
 {
     "header": {
       "survey_title": "Foundational Digital Transformation in North-East Romania",
-      "survey_description": "This research study aims to investigate the effectiveness of a Smart Specialisation program in rigorously evaluating the adoption of digital technologies by SMEs in Romania's North-East region.  \nThe program is designed to provide financial assistance to eligible SMEs, facilitating their acquisition of ICT hardware, development or adaptation of software applications/licenses, acquisition of AI systems, website development, and enhancement of IT infrastructure.  \nBy comparing randomly selected program firms and non-selected comparison firms, we seek to establish causal relationships between digitalization and its corresponding outcomes, while also distinguishing the effects for various types of firms.  \nNon-refundable financial support will be provided to eligible SMEs, with a maximum project contribution of 90% of the eligible investment value.  \nTotal financial allocation of EUR 51.4 milions and is carried out by launching calls for projects (min 15.000 EUR, max 100.000 EUR per firm).  \nThe focus is on increasing digital intensity, supporting the use of digital tools, equipment, and services by creating internet pages, digital promotion, cloud hosting services, e-commerce, digitalization of communication with clients, data collection, buying ICT hardware, and developing or adapting software applications/licenses.\n\nThe first 7 following questions regard your beliefs on, what is called in technical terms, the intention-to-treat effect (ITT). It is the effect of BEING OFFERED the full program, regardless of whether or not a firm decides to participate. It is simply the mean difference of the outcomes for the 100 firms that get the financial assistance to get digitalized, compared to the 100 firms that do not.\nYou will be asked what you think it is the likely impact of the program for the firms that are offered the intervention, compared to those that do not participate to the program. \n\nThe last 3 questions are based on the Digital Economy and Society Index (DESI) score, that endeavors to capture the degree to which a company is digitized.  \nThe DESI score is therefore created by taking the sum of DESI indicators that are met by a given company. Since there are 12 DESI indicators, the DESI score has the maximum value of 12.\nYou will be asked what you think it is the likely impact on the DESI Score for the firms that are offered the intervention, compared to those that do not participate to the program.  "
+      "survey_description": "This research study aims to investigate the effectiveness of the Smart Specialisation Program by rigorously evaluating the adoption of digital technologies by small and medium enterprises (SMEs) in Romania's North-East region.  \nThe program is designed to provide financial assistance to eligible SMEs, facilitating their acquisition of ICT hardware, development or adaptation of software applications/licenses, acquisition of AI systems, website development, and enhancement of IT infrastructure. By comparing randomly selected program firms and non-selected comparison firms, we seek to establish causal relationships between digitalization and its corresponding outcomes, while also distinguishing the effects for various types of firms.\n\nNon-refundable financial support will be provided to eligible SMEs, with a maximum project contribution of 90% of the eligible investment value.  \nTotal financial allocation is of 51.4 milions Euros and is carried out by launching calls for projects (min 15.000 Euros, max 100.000 Euros per firm).  \nThe focus is on increasing digital intensity, supporting the use of digital tools, equipment, and services by creating internet pages, digital promotion, cloud hosting services, e-commerce, digitalization of communication with clients, data collection, buying ICT hardware, and developing or adapting software applications/licenses.\n\nThe following 10 questions regard your beliefs on, what is called in technical terms, the intention-to-treat effect (ITT). It is the effect of BEING OFFERED the full program, regardless of whether or not a firm decides to participate. It is simply the mean difference of the outcomes for the firms that get the financial assistance to get digitalized, compared to the firms that do not.\nIn other words, you will be asked what you think it is the likely impact of the program for the firms that are offered the intervention, compared to those that do not participate to the program."
     },
     "question1": {
       "question_number": "Question 1",
       "title_question": "Question 1 - Take-up rate",
-      "subtitle_question": "Consider that 100 eligible companies have been selected to participate to the Smart Specialisation program. What percentages of firms do you think will enroll in the program? _Please allocate the probabilities in the cells corresponding to your beliefs._ ",
+      "subtitle_question": "Consider that 100 eligible companies have been selected to participate to the Smart Specialisation Program. What percentages of firms do you think will enroll in the program?\n_Please allocate the probabilities in the cells corresponding to your beliefs._ ",
       "column_1": "SMEs enrolling %",
       "column_2": "Probabilities",
       "minor_value": "0.0",
@@ -17,14 +17,14 @@
       "key": "data_editor1",
       "title_x_axis": "SMEs enrolling",
       "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of Beliefs", 
+      "title_barchart": "Distribution of your Beliefs", 
       "num_input_question": "num_input_question1",
       "effect_size": "What would be the minimum take-up rate you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the take-up rate to be at least 60%, you should give 60 as your answer."
     },
       "question2": {
       "question_number": "Question 2",
       "title_question": "Question 2 - Full-time Employees",
-      "subtitle_question": "How much do you think that the digitalization grant has increased the total number of full-time employees on average in the SMEs that were offered the intervention compared to the companies that did not receive it in the first 6 months since firms started their implementation? _Please allocate the probabilities in the cells corresponding to your beliefs._ ",
+      "subtitle_question": "On average, how much do you think that the total number of full-time employees would increase in the SMEs beneficiaries of the grant in the first 6 months after firms received the money, compared to non-beneficiaries firms from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._ ",
       "column_1": "Full-time Employees %",
       "column_2": "Probabilities",
       "minor_value": "<-10.0",
@@ -35,7 +35,7 @@
       "key": "data_editor2",
       "title_x_axis": "Employment Level",
       "title_y_axis": "Probability",
-      "title_barchart": "Distribution of Beliefs",
+      "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question2",
       "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of employees to increase by at least 5%, you should give 5 as your answer."
     },
@@ -43,8 +43,8 @@
       "question3": {
       "question_number": "Question 3",
       "title_question": "Question 3 - Labor Productivity",
-      "subtitle_question": "How much do you think that the digitalization grant has increased the labor productivity on average in the SMEs that were offered the intervention, compared to the SMEs that did not receive it, in the first 6 months since firms started their implementation? _Please allocate the probabilities in the cells corresponding to your beliefs._",
-      "column_1": "Productivity Increase %",
+      "subtitle_question": "On average, how much do you think that the labor productivity would increase in the SMEs that were offered the intervention in the first 6 months after firms received the money, compared to non-beneficiaries SMEs from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "column_1": "Labor Productivity %",
       "column_2": "Probabilities",
       "minor_value": "<-10.0",
       "min_value_graph": -10.0,
@@ -52,17 +52,17 @@
       "step_size_graph": 5.0,
       "major_value": ">30.0",
       "key": "data_editor3",
-      "title_x_axis": "Productivity Increase",
+      "title_x_axis": "Labor Productivity",
       "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of Beliefs",
+      "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question3",
       "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the productivity to increase by at least 5%, you should give 5 as your answer."
     },
       "question4": {
       "question_number": "Question 4",
       "title_question": "Question - Total Annual Sales Revenue",
-      "subtitle_question": "How much do you think that the digitalization grant has increased the total annual sales revenue on average in the SMEs that were offered the intervention, compared to the companies that did not receive it in the first 6 months since firms started their implementation? _Please allocate the probabilities in the cells corresponding to your beliefs._",
-      "column_1": "Sales Revenue %",
+      "subtitle_question": "On average, how much do you think that the total annual sales revenue would increase in the SMEs that were offered the intervention in the first 6 months after firms received the money, compared to non-beneficiaries SMEs from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "column_1": "Annual Sales Revenue %",
       "column_2": "Probabilities",
       "minor_value": "<-10.0",
       "min_value_graph": -10.0,
@@ -70,16 +70,16 @@
       "step_size_graph": 5.0,
       "major_value": ">30.0",
       "key": "data_editor4",
-      "title_x_axis": "Sales Revenue",
+      "title_x_axis": "Annual Sales Revenue",
       "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of Beliefs",
+      "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question4",
-      "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the output levels to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the total annual sales revenue to increase by at least 5%, you should give 5 as your answer."
     },
       "question5": {
       "question_number": "Question 5",
       "title_question": "Question 5 - Export",
-      "subtitle_question": "**Considering ONLY SMEs that ALREADY exported outside Romanian borders before the intervention.**  \nHow much do you think that SMEs that benefit from the digitalization grant have increased the export levels in European Union or in the worldwide market on average, compared to SMEs that did not receive it in the first 6 months since firms started their implementation? _Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "subtitle_question": "**Considering ONLY SMEs that have ALREADY exported outside Romanian borders before the intervention.**  \nOn average, how much do you think that the export would increase in the SMEs beneficiaries of the grant that have already exported in the European Union or in the worldwide market in the first 6 months after firms received the money, compared to non-beneficiaries SMEs from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "Export  %",
       "column_2": "Probabilities",
       "minor_value": "<-10.0",
@@ -90,14 +90,14 @@
       "key": "data_editor5",
       "title_x_axis": "Export",
       "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of Beliefs",
+      "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question5",
       "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the export to increase by at least 5%, you should give 5 as your answer."
     },
       "question6": {
       "question_number": "Question 6",
       "title_question": "Question 6 - New Exporting SMEs",
-      "subtitle_question": "**Considering ONLY SMEs that have NEVER exported outside Romanian borders before the intervention.**  \nHow many SMEs that benefited from the digitalization grant you think that would start exporting in European Union or in the worldwide market on average, compared to the firms that did not receive it in the first 6 months since firms started their implementation? _Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "subtitle_question": "**Considering ONLY SMEs that have NEVER exported outside Romanian borders before the intervention.**  \nOn average, how many SMEs that benefited from the grant do you think would start exporting in European Union or in the worldwide market in the first 6 months after receiving the money, compared to non-beneficiaries SMEs from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "New Exporting SMEs %",
       "column_2": "Probabilities",
       "minor_value": "<-10.0",
@@ -108,15 +108,15 @@
       "key": "data_editor6",
       "title_x_axis": "New Exporting SMEs",
       "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of Beliefs",
+      "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question6",
-      "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the percentage of SMESs starting exporting to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the percentage of SMEs starting exporting to increase by at least 5%, you should give 5 as your answer."
     },
     
       "question7": {
       "question_number": "Question 7",
       "title_question": "Question 7 - Annual Profit",
-      "subtitle_question": "How much do you think that the digitalization grant has impacted the annual profit on average in the SMEs that were offered the intervention compared to the companies that did not receive it in the first 6 months since firms started their implementation? _Please allocate the probabilities in the cells corresponding to your beliefs._ ",
+      "subtitle_question": "On average, how much do you think that the annual profit would increase in the SMEs beneficiaries of the grant in the first 6 months after firms received the money, compared to non-beneficiaries SMEs from the comparison group?\n _Please allocate the probabilities in the cells corresponding to your beliefs._ ",
       "column_1": "Annual Profit %",
       "column_2": "Probabilities",
       "minor_value": "<-10.0",
@@ -127,7 +127,7 @@
       "key": "data_editor7",
       "title_x_axis": "Annual Profit",
       "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of Beliefs",
+      "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question7",
       "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the annual profit to increase by at least 5%, you should give 5 as your answer."
     },
@@ -135,9 +135,9 @@
       "question8": {
       "question_number": "Question 8",
       "title_question": "Question 8 - E-Commerce",
-      "subtitle_question": "**Considering ONLY SMEs that have NEVER used an e-commerce service before the intervention.**  \nHow much would the DESI Score increase many SMEs that benefited from the digitalization grant you think would start selling products online through an e-commerce on average, compared to the firms that did not receive it in the first 6 months since firms started their implementation? _Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "subtitle_question": "**Considering ONLY SMEs that have NEVER used an e-commerce service before the intervention.**  \nOn average, how much do you think that the share of e-commerce users would increase in the SMEs beneficiaries of the grant in the first 6 months after they received the money, compared to non-beneficiaries firms from the comparison group? _Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "SMEs starting E-commerce %",
-      "column_2": "DESI Score",
+      "column_2": "Probabilities",
       "minor_value": "0",
       "min_value_graph": 0,
       "max_value_graph": 12,
@@ -146,16 +146,16 @@
       "key": "data_editor8",
       "title_x_axis": "SMEs starting E-Commerce",
       "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of Beliefs",
+      "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question8",
-      "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of SMESs using e-commerce to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of SMEs using e-commerce to increase by at least 5%, you should give 5 as your answer."
     },
       "question9": {
       "question_number": "Question 9",
-      "title_question": "Question 9 - Electronic Invoices %",
-      "subtitle_question": "**Considering ONLY SMEs that have NEVER used electronic invoices before the intervention.**  \nHow many SMEs that benefited from the digitalization grant you think would start using electronic invoices on average, compared to the firms that did not receive it in the first 6 months since firms started their implementation? _Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "title_question": "Question 9 - Electronic Invoices",
+      "subtitle_question": "**Considering ONLY SMEs that have NEVER used electronic invoices before the intervention.**  \nOn average, how much do you think that the share of electonic invoices users would increase in the SMEs beneficiaries of the grant in the first 6 months after they received the money, compared to non-beneficiaries firms from the comparison group? _Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "SMEs using Electronic Invoices",
-      "column_2": "Probability",
+      "column_2": "Probabilities",
       "minor_value": "0.0",
       "min_value_graph": 0,
       "max_value_graph": 30,
@@ -164,14 +164,14 @@
       "key": "data_editor9",
       "title_x_axis": "SMEs using electronic invoices",
       "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of Beliefs",
+      "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question9",
-      "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of SMESs using electronic invoices to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of SMEs using electronic invoices to increase by at least 5%, you should give 5 as your answer."
     }, 
     "question10": {
       "question_number": "Question 10",
       "title_question": "Question 10 - Digital Advertising",
-      "subtitle_question": "**Considering ONLY SMEs that have NEVER used electronic invoices before the intervention.**  \nHow many SMEs that benefited from the digitalization grant you think would start using digital advertising on average, compared to the firms that did not receive it in the first 6 months since firms started their implementation? _Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "subtitle_question": "**Considering ONLY SMEs that have NEVER used digital advertising before the intervention.**  \n On average, how much do you think that the share of digital advertising users would increase in the SMEs beneficiaries of the grant in the first 6 months after they received the money, compared to non-beneficiaries firms from the comparison group? _Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "SMEs using Digital Advertising %",
       "column_2": "Probabilities",
       "minor_value": "0.0",
@@ -182,8 +182,8 @@
       "key": "data_editor10",
       "title_x_axis": "SMEs using Digital Advertising",
       "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of Beliefs",
+      "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question10",
-      "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of SMESs using digital advertising to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of SMEs using digital advertising to increase by at least 5%, you should give 5 as your answer."
     }
 }

@@ -130,7 +130,7 @@ def instructions():
                 # Adjust the title and labels proportions
                 fig.subplots_adjust(top=0.9, right=0.95)  # Adjust the values as needed
 
-                st.pyplot(fig, use_container_width=False)
+                st.pyplot(fig, use_container_width=True)
 
 def submit(): 
     st.session_state['submit'] = True
