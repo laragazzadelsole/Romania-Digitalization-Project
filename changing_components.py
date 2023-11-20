@@ -106,6 +106,9 @@ def create_question(jsonfile_name):
 
                     num_bins = len(bins_grid)
                 
+                with plot:
+                    st.bar_chart(bins_grid, x = jsonfile_name['column_1'], y = jsonfile_name['column_2'])
+                
                 '''
                 with plot:
                     
