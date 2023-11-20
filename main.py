@@ -25,6 +25,7 @@ if st.session_state['consent']:
 
     q1_config = config['question1']
     updated_bins_question_1_df, percentage_difference1, num_bins1 = create_question(q1_config)
+    min_effect_size_question1 = min_effect_size_question(q1_config)
 
     q2_config = config['question2']
     updated_bins_question_2_df, percentage_difference2, num_bins2 = create_question(q2_config)

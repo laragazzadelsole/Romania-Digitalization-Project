@@ -55,14 +55,9 @@ def safe_var(key):
 def survey_title_subtitle(header_config):
     st.title(header_config['survey_title'])
     st.write(header_config['survey_description'])
+    st.write(st.__version__)
 
-def fontsize_function(num_bins):
-    # Iterate over possible values of x
-    for x in range(1, num_bins + 1):
-        if num_bins / x == 2:
-            return float(x)
-    return None
-
+#@st.cache_data
 def create_question(jsonfile_name):
     minor_value = str(jsonfile_name['minor_value'])
     min_value = float(jsonfile_name['min_value_graph'])
@@ -111,8 +106,7 @@ def create_question(jsonfile_name):
 
                     num_bins = len(bins_grid)
                 
-                #plot_width = plot_width_function(num_bins, 2)
-
+                '''
                 with plot:
                     
                     # Create the figure with dynamic figsize
@@ -131,13 +125,17 @@ def create_question(jsonfile_name):
                     plt.tight_layout()
                     st.pyplot(fig, use_container_width=True)
             
-           
-            st.write(jsonfile_name['effect_size'])
-            st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
+                '''
+            #st.write(jsonfile_name['effect_size'])
+            #st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
 
             # Return the updated DataFrame
             updated_bins_df = pd.DataFrame(bins_grid)
             return updated_bins_df, percentage_difference, num_bins
+        
+def min_effect_size_question(jsonfile_name):
+    st.write(jsonfile_name['effect_size'])
+    st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
 
 
 def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df):
