@@ -11,6 +11,7 @@ import numpy as np
 import requests
 #from requests_oauthlib import OAuth2Session
 import csv
+import altair as alt
         
 # Insert consent
 def add_consent():
@@ -104,7 +105,13 @@ def instructions():
     st.write(CAPTION_INSTRUCTIONS)
 
     with plot:
-        st.bar_chart(df, x = 'Temperature', y ='Probability')
+        chart = alt.Chart(df).mark_bar().encode(
+            x=alt.X('Temperature', sort=None),
+            y='Probability'
+        )
+
+        # Display the chart using st.altair_chart
+        st.altair_chart(chart, use_container_width=True)
     
 def submit(): 
     st.session_state['submit'] = True

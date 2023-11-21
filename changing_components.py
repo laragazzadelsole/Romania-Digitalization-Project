@@ -2,7 +2,6 @@
 import streamlit as st
 import streamlit.components.v1 as components
 import numpy as np
-#from st_aggrid import AgGrid, GridOptionsBuilder, GridUpdateMode, DataReturnMode, JsCode
 import io
 import numpy as np
 from google.oauth2 import service_account
@@ -15,6 +14,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from fixed_components import *
 import sympy as sy
+import altair as alt
 
 def initialize_session_state():
     if 'key' not in st.session_state:
@@ -76,13 +76,9 @@ def create_question(jsonfile_name):
     y_axis = np.zeros(len(x_axis))
     data = pd.DataFrame(list(zip(x_axis, y_axis)), columns=[jsonfile_name['column_1'], jsonfile_name['column_2']])
 
-# data_container = st.container()
-# placeholder = st.empty()
-# with placeholder.container():
-    # with st.expander(jsonfile_name['question_number'], expanded=True):
-
     st.subheader(jsonfile_name['title_question'])
     st.write(jsonfile_name['subtitle_question'])
+    
     data_container = st.container()
     with data_container:
         table, plot = st.columns([0.4, 0.6], gap="large")
@@ -105,10 +101,16 @@ def create_question(jsonfile_name):
                 st.write(f'**:red[You have inserted {abs(percentage_difference)} percent more, please review your percentage distribution.]**')
 
             num_bins = len(bins_grid)
-            
-            
+                  
         with plot:
-            st.bar_chart(bins_grid, x = jsonfile_name['column_1'], y = jsonfile_name['column_2'])
+            # Create bar chart with Altair
+            chart = alt.Chart(bins_grid).mark_bar().encode(
+                x=alt.X(jsonfile_name['column_1'], sort=None),
+                y=jsonfile_name['column_2']
+            )
+
+            # Display the chart using st.altair_chart
+            st.altair_chart(chart, use_container_width=True)
         
     st.write(jsonfile_name['effect_size'])
     st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
@@ -117,11 +119,6 @@ def create_question(jsonfile_name):
     updated_bins_df = pd.DataFrame(bins_grid)
     
     return updated_bins_df, percentage_difference, num_bins
-        
-def min_effect_size_question(jsonfile_name):
-    st.write(jsonfile_name['effect_size'])
-    st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
-
 
 def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df):
     st.session_state['submit'] = True
@@ -132,7 +129,6 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     for df in updated_bins_list:
         transposed_df = df.transpose()
         transposed_bins_list.append(transposed_df)
-    
     
     # Extracting the first row of each transposed dataframe as column names
     column_names_q1 = list(transposed_bins_list[0].iloc[0])
@@ -252,11 +248,9 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     creds = ServiceAccountCredentials.from_json_keyfile_dict(secrets_to_json(), scope)
     client = gspread.authorize(creds)
 
-    # Load the Google Sheet romania-project@romania-digitalization-project.iam.gserviceaccount.com
+ 
     sheet = client.open("WB project").sheet1
-    #spreadsheet_id = "1AXMfEidiJp_-ykkgt1t_vIO1lFcNTZ_5u3-m72a5gEA/edit#gid=0"
-    #sheet_name = "Sheet1"
-    #sheet = client.open("WB project").sheet1
+
     column_names_list = concatenated_df.columns.tolist()
     #test_sheet = client.create(f'Test for Romania').sheet1
    # sheet_col_update = sheet.append_row([concatenated_df.columns.values.tolist()])
@@ -266,8 +260,8 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     #st.success('Data has been saved successfully.')
     
     #Navigate to the folder in Google Drive. Copy the Folder ID found in the URL. This is everything that comes after “folder/” in the URL.
-   # backup_sheet = client.create(f'Backup_{datetime.now()}', folder_id='1stjn5pLHr3rZ89n6QndKSBJoKBLtuK-u').sheet1
+   # backup_sheet = client.create(f'Backup_{datetime.now()}', folder_id='').sheet1
     #backup_sheet = backup_sheet.append_rows(concatenated_df.values.tolist()) #(new_bins_df.iloc[:2].values.tolist())
-    #backup_sheet.share('sara.gironi97@gmail.com', perm_type = 'user', role = 'writer')
+    #backup_sheet.share('', perm_type = 'user', role = 'writer')
 
     
