@@ -30,17 +30,17 @@ def consent_form():
 
 
 def user_full_name():
-    st.text_input("Please enter your full name and surname:", key = 'user_full_name')
+    st.text_input("Please, enter your full name and surname:", key = 'user_full_name')
 
 def user_position():
-    st.text_input("Please enter your working title:", key = 'user_position')
+    st.text_input("Please, enter your working title:", key = 'user_position')
 
 def user_professional_category():
     # Professional Category Checkbox
-    st.selectbox('Please specify your professional category:', ('Policymaker', 'Expert', 'Entrepreneur/Manager'), key="professional_category")
+    st.selectbox('Please, specify your professional category:', ('Policymaker', 'Expert', 'Entrepreneur/Manager'), key="professional_category")
 
 def years_of_experience():
-    st.number_input('Please insert the years of experience you have:', min_value= 0, key = 'years_of_experience')
+    st.number_input('Please, insert the years of experience you have:', min_value= 0, key = 'years_of_experience')
 
 
 def personal_information():

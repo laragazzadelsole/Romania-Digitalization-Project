@@ -32,19 +32,7 @@ def initialize_session_state():
             'Minimum Effect Size Q2': [],    
             'Minimum Effect Size Q3': [],
             'Minimum Effect Size Q4': [],
-   
-            'Minimum Effect Size Q5': [],
-    
-            'Minimum Effect Size Q6': [],
-    
-            'Minimum Effect Size Q7': [],
-
-            'Minimum Effect Size Q8': [],
-
-            'Minimum Effect Size Q9': [],
-   
-            'Minimum Effect Size Q10': []
-
+            'Minimum Effect Size Q5': []
             }
 
 def safe_var(key):
@@ -139,11 +127,6 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     column_names_q3 = list(transposed_bins_list[2].iloc[0])
     column_names_q4 = list(transposed_bins_list[3].iloc[0])
     column_names_q5 = list(transposed_bins_list[4].iloc[0])
-    column_names_q6 = list(transposed_bins_list[5].iloc[0])
-    column_names_q7 = list(transposed_bins_list[6].iloc[0])
-    column_names_q8 = list(transposed_bins_list[7].iloc[0])
-    column_names_q9 = list(transposed_bins_list[8].iloc[0])
-    column_names_q10 = list(transposed_bins_list[9].iloc[0])
 
     # Setting the column names for each dataframe
     transposed_bins_list[0].columns = column_names_q1
@@ -151,11 +134,6 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     transposed_bins_list[2].columns = column_names_q3
     transposed_bins_list[3].columns = column_names_q4
     transposed_bins_list[4].columns = column_names_q5
-    transposed_bins_list[5].columns = column_names_q6
-    transposed_bins_list[6].columns = column_names_q7
-    transposed_bins_list[7].columns = column_names_q8
-    transposed_bins_list[8].columns = column_names_q9
-    transposed_bins_list[9].columns = column_names_q10
 
     # Removing the first row (used as column names) from each dataframe
     transposed_bins_list[0] = transposed_bins_list[0].iloc[1:]
@@ -163,11 +141,7 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     transposed_bins_list[2] = transposed_bins_list[2].iloc[1:]
     transposed_bins_list[3] = transposed_bins_list[3].iloc[1:]
     transposed_bins_list[4] = transposed_bins_list[4].iloc[1:]
-    transposed_bins_list[5] = transposed_bins_list[5].iloc[1:]
-    transposed_bins_list[6] = transposed_bins_list[6].iloc[1:]
-    transposed_bins_list[7] = transposed_bins_list[7].iloc[1:]
-    transposed_bins_list[8] = transposed_bins_list[8].iloc[1:]
-    transposed_bins_list[9] = transposed_bins_list[9].iloc[1:]
+
 
     # Adding 'Q1' prefix to column names of the first dataframe in the list
     transposed_bins_list[0].columns = ['Q1  ' + str(col) for col in transposed_bins_list[0].columns]
@@ -175,24 +149,16 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     transposed_bins_list[2].columns = ['Q3  ' + str(col) for col in transposed_bins_list[2].columns]
     transposed_bins_list[3].columns = ['Q4  ' + str(col) for col in transposed_bins_list[3].columns]
     transposed_bins_list[4].columns = ['Q5  ' + str(col) for col in transposed_bins_list[4].columns]
-    transposed_bins_list[5].columns = ['Q6  ' + str(col) for col in transposed_bins_list[5].columns]
-    transposed_bins_list[6].columns = ['Q7  ' + str(col) for col in transposed_bins_list[6].columns]
-    transposed_bins_list[7].columns = ['Q8  ' + str(col) for col in transposed_bins_list[7].columns]
-    transposed_bins_list[8].columns = ['Q9  ' + str(col) for col in transposed_bins_list[8].columns]
-    transposed_bins_list[9].columns = ['Q10  ' + str(col) for col in transposed_bins_list[9].columns]
+
 
     df1 = transposed_bins_list[0]
     df2 = transposed_bins_list[1]
     df3 = transposed_bins_list[2]
     df4 = transposed_bins_list[3]
     df5 = transposed_bins_list[4]
-    df6 = transposed_bins_list[5]
-    df7 = transposed_bins_list[6]
-    df8 = transposed_bins_list[7]
-    df9 = transposed_bins_list[8]
-    df10 = transposed_bins_list[9]
 
-    questions_df = pd.concat([df1,df2.set_index(df1.index), df3.set_index(df1.index), df4.set_index(df1.index), df5.set_index(df1.index), df6.set_index(df1.index), df7.set_index(df1.index), df8.set_index(df1.index), df9.set_index(df1.index), df10.set_index(df1.index)], axis=1)
+
+    questions_df = pd.concat([df1,df2.set_index(df1.index), df3.set_index(df1.index), df4.set_index(df1.index), df5.set_index(df1.index)], axis=1)
 
     # Resetting index if needed
     questions_df.reset_index(drop=True, inplace=True)
@@ -209,11 +175,6 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     MIN_EFF_SIZE_Q3 = 'Minimum Effect Size Q3'
     MIN_EFF_SIZE_Q4 = 'Minimum Effect Size Q4'
     MIN_EFF_SIZE_Q5 = 'Minimum Effect Size Q5'
-    MIN_EFF_SIZE_Q6 = 'Minimum Effect Size Q6'
-    MIN_EFF_SIZE_Q7 = 'Minimum Effect Size Q7'
-    MIN_EFF_SIZE_Q8 = 'Minimum Effect Size Q8'
-    MIN_EFF_SIZE_Q9 = 'Minimum Effect Size Q9'
-    MIN_EFF_SIZE_Q10 = 'Minimum Effect Size Q10'
 
 
     data[USER_FULL_NAME].append(safe_var('user_full_name'))
@@ -225,12 +186,7 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     data[MIN_EFF_SIZE_Q3].append(safe_var('num_input_question3'))
     data[MIN_EFF_SIZE_Q4].append(safe_var('num_input_question4'))
     data[MIN_EFF_SIZE_Q5].append(safe_var('num_input_question5'))
-    data[MIN_EFF_SIZE_Q6].append(safe_var('num_input_question6'))
-    data[MIN_EFF_SIZE_Q7].append(safe_var('num_input_question7'))
-    data[MIN_EFF_SIZE_Q8].append(safe_var('num_input_question8'))
-    data[MIN_EFF_SIZE_Q9].append(safe_var('num_input_question9'))
-    data[MIN_EFF_SIZE_Q10].append(safe_var('num_input_question10'))                                    
-  
+
 
     st.session_state['data'] = data
     
