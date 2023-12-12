@@ -40,9 +40,8 @@ if st.session_state['consent']:
     updated_bins_question_5_df, percentage_difference5, num_bins5 = create_question(q5_config)
 
     
-    percentage_differences = [percentage_difference1, percentage_difference2] #, percentage_difference3, percentage_difference4, percentage_difference5, percentage_difference6, percentage_difference7, percentage_difference8, percentage_difference9, percentage_difference10, percentage_difference11]
-
-    updated_bins_list = [updated_bins_question_1_df, updated_bins_question_2_df]#, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df, updated_bins_question_11_df]
+    percentage_differences = [percentage_difference1, percentage_difference2] #, percentage_difference3, percentage_difference4, percentage_difference5
+    updated_bins_list = [updated_bins_question_1_df, updated_bins_question_2_df]#, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df
     # Submission button + saving data 
     if all(percentage == 0 for percentage in percentage_differences):
         submit = st.button("Submit", on_click = add_submission, args = (updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df))

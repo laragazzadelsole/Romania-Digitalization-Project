@@ -27,7 +27,7 @@ def initialize_session_state():
             'User Full Name': [],
             'User Working Position': [],
             'User Professional Category': [],
-            'Years of Experience': [],
+            'User Years of Experience': [],
             'Minimum Effect Size Q1': [],
             'Minimum Effect Size Q2': [],    
             'Minimum Effect Size Q3': [],
@@ -111,10 +111,10 @@ def create_question(jsonfile_name):
     
     return updated_bins_df, percentage_difference, num_bins
 
-def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df):
+def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df):
     st.session_state['submit'] = True
 
-    updated_bins_list = [updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df]
+    updated_bins_list = [updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df]
     transposed_bins_list = []
 
     for df in updated_bins_list:
