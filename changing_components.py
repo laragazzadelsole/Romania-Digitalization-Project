@@ -13,7 +13,6 @@ from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 from fixed_components import *
-import sympy as sy
 import altair as alt
 
 def initialize_session_state():
@@ -28,6 +27,7 @@ def initialize_session_state():
             'User Full Name': [],
             'User Working Position': [],
             'User Professional Category': [],
+            'Years of Experience': [],
             'Minimum Effect Size Q1': [],
             'Minimum Effect Size Q2': [],    
             'Minimum Effect Size Q3': [],
@@ -85,7 +85,18 @@ def create_question(jsonfile_name):
         with table:
             bins_grid = st.data_editor(data, key= jsonfile_name['key'], use_container_width=True, hide_index=True, disabled=[jsonfile_name['column_1']])
             
-            # Initialize the counter
+                  
+        with plot:
+            # Create bar chart with Altair
+            chart = alt.Chart(bins_grid).mark_bar().encode(
+                x=alt.X(jsonfile_name['column_1'], sort=None),
+                y=jsonfile_name['column_2']
+            )
+
+            # Display the chart using st.altair_chart
+            st.altair_chart(chart, use_container_width=True)
+
+                        # Initialize the counter
             total_percentage = int(100)
             # Calculate the new total sum
             percentage_inserted= sum(bins_grid[jsonfile_name['column_2']])
@@ -101,19 +112,11 @@ def create_question(jsonfile_name):
                 st.write(f'**:red[You have inserted {abs(percentage_difference)} percent more, please review your percentage distribution.]**')
 
             num_bins = len(bins_grid)
-                  
-        with plot:
-            # Create bar chart with Altair
-            chart = alt.Chart(bins_grid).mark_bar().encode(
-                x=alt.X(jsonfile_name['column_1'], sort=None),
-                y=jsonfile_name['column_2']
-            )
 
-            # Display the chart using st.altair_chart
-            st.altair_chart(chart, use_container_width=True)
-        
-    st.write(jsonfile_name['effect_size'])
-    st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
+    col1, col2= st.columns(2)
+    with col1:
+        st.write(jsonfile_name['effect_size'])
+        st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
 
     # Return the updated DataFrame
     updated_bins_df = pd.DataFrame(bins_grid)
@@ -189,20 +192,18 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     df9 = transposed_bins_list[8]
     df10 = transposed_bins_list[9]
 
-
     questions_df = pd.concat([df1,df2.set_index(df1.index), df3.set_index(df1.index), df4.set_index(df1.index), df5.set_index(df1.index), df6.set_index(df1.index), df7.set_index(df1.index), df8.set_index(df1.index), df9.set_index(df1.index), df10.set_index(df1.index)], axis=1)
-
 
     # Resetting index if needed
     questions_df.reset_index(drop=True, inplace=True)
     
-     
     # Update session state
     data = st.session_state['data']
 
     USER_FULL_NAME = 'User Full Name'
     USER_PROF_CATEGORY = 'User Professional Category'
     USER_POSITION = 'User Working Position'
+    YEARS_OF_EXPERIENCE = 'User Years of Experience'
     MIN_EFF_SIZE_Q1 = 'Minimum Effect Size Q1'
     MIN_EFF_SIZE_Q2 = 'Minimum Effect Size Q2'
     MIN_EFF_SIZE_Q3 = 'Minimum Effect Size Q3'
@@ -218,6 +219,7 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     data[USER_FULL_NAME].append(safe_var('user_full_name'))
     data[USER_POSITION].append(safe_var('user_position'))
     data[USER_PROF_CATEGORY].append(safe_var('professional_category'))
+    data[YEARS_OF_EXPERIENCE].append(safe_var('years_of_experience'))
     data[MIN_EFF_SIZE_Q1].append(safe_var('num_input_question1'))
     data[MIN_EFF_SIZE_Q2].append(safe_var('num_input_question2'))
     data[MIN_EFF_SIZE_Q3].append(safe_var('num_input_question3'))
@@ -233,8 +235,8 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     st.session_state['data'] = data
     
     session_state_df = pd.DataFrame(data)
-    personal_data_df = session_state_df.iloc[:, :3]
-    min_eff_df = session_state_df.iloc[:, 3:]
+    personal_data_df = session_state_df.iloc[:, :4]
+    min_eff_df = session_state_df.iloc[:, 4:]
 
  
     concatenated_df = pd.concat([personal_data_df, questions_df.set_index(personal_data_df.index), min_eff_df.set_index(personal_data_df.index)], axis=1)

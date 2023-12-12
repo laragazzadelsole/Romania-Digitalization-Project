@@ -37,12 +37,19 @@ def user_position():
 
 def user_professional_category():
     # Professional Category Checkbox
-    st.selectbox('Specify your professional category:', ('Policymaker', 'Expert', 'Entrepreneur/Manager'), key="professional_category")
+    st.selectbox('Please specify your professional category:', ('Policymaker', 'Expert', 'Entrepreneur/Manager'), key="professional_category")
+
+def years_of_experience():
+    st.number_input('Please insert the years of experience you have:', min_value= 0, key = 'years_of_experience')
+
 
 def personal_information():
-    user_full_name()
-    user_position()
-    user_professional_category()
+    col1, col2= st.columns(2)
+    with col1:
+        user_full_name()
+        user_position()
+        user_professional_category()
+        years_of_experience()
 
 def secrets_to_json():
     return {
