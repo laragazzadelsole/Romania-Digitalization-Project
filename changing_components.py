@@ -21,7 +21,13 @@ def initialize_session_state():
         st.session_state['consent'] = False
         st.session_state['submit'] = False
         st.session_state['No answer'] = ''
-       
+    
+    if 'personal_data_df' not in st.session_state:
+        st.session_state['personal_data_df'] = pd.DataFrame(columns=['User Full Name', 'User Working Position', 'User Professional Category', 'User Years of Experience'])
+
+    if 'min_eff_df' not in st.session_state:
+        st.session_state['min_eff_df'] = pd.DataFrame(columns=['Minimum Effect Size Q1', 'Minimum Effect Size Q2', 'Minimum Effect Size Q3', 'Minimum Effect Size Q6', 'Minimum Effect Size Q7'])
+    
     if 'data' not in st.session_state:
         st.session_state['data'] = {
             'User Full Name': [],
@@ -31,10 +37,10 @@ def initialize_session_state():
             'Minimum Effect Size Q1': [],
             'Minimum Effect Size Q2': [],    
             'Minimum Effect Size Q3': [],
-            'Minimum Effect Size Q4': [],
-            'Minimum Effect Size Q5': []
+            'Minimum Effect Size Q6': [],
+            'Minimum Effect Size Q7': []
             }
-
+    
 def safe_var(key):
     if key in st.session_state:
         return st.session_state[key]
@@ -48,13 +54,14 @@ def survey_title_subtitle(header_config):
 def create_question(jsonfile_name):
 
     minor_value = str(jsonfile_name['minor_value'])
-    min_value = float(jsonfile_name['min_value_graph'])
-    max_value = float(jsonfile_name['max_value_graph'])
-    interval = float(jsonfile_name['step_size_graph'])
-    major_value = jsonfile_name['major_value']
+    min_value = jsonfile_name['min_value_graph']
+    max_value = jsonfile_name['max_value_graph']
+    interval = jsonfile_name['step_size_graph']
+    major_value = str(jsonfile_name['major_value'])
 
     # Create a list of ranges based on the provided values
-    x_axis = [f"{i}-{(i+interval)}" for i in range(int(min_value), int(max_value), int(interval))]
+
+    x_axis = [f"{round(i, 1)}-{round((i + interval), 1)}" for i in np.arange(min_value, max_value, interval)]
     # Add minor_value at the beginning
     x_axis.insert(0, minor_value)
 
@@ -72,7 +79,23 @@ def create_question(jsonfile_name):
         table, plot = st.columns([0.4, 0.6], gap="large")
         with table:
             bins_grid = st.data_editor(data, key= jsonfile_name['key'], use_container_width=True, hide_index=True, disabled=[jsonfile_name['column_1']])
-            
+
+            # Initialize the counter
+            total_percentage = int(100)
+            # Calculate the new total sum
+            percentage_inserted= sum(bins_grid[jsonfile_name['column_2']])
+            # Calculate the difference in sum
+            percentage_difference = total_percentage - percentage_inserted
+            # Update the counter
+            total_percentage = percentage_difference
+
+            # Display the counter
+            if percentage_difference > 0:
+                st.write(f"**You still have to allocate {percentage_difference} percent probability.**")
+            elif percentage_difference == 0:
+                st.write(f'**You have allocated all probabilities!**')
+            else:
+                st.write(f'**:red[You have inserted {abs(percentage_difference)} percent more, please review your percentage distribution.]**')           
                   
         with plot:
             # Create bar chart with Altair
@@ -84,85 +107,47 @@ def create_question(jsonfile_name):
             # Display the chart using st.altair_chart
             st.altair_chart(chart, use_container_width=True)
 
-                        # Initialize the counter
-            total_percentage = int(100)
-            # Calculate the new total sum
-            percentage_inserted= sum(bins_grid[jsonfile_name['column_2']])
-            # Calculate the difference in sum
-            percentage_difference = total_percentage - percentage_inserted
-            # Update the counter
-            total_percentage = percentage_difference
-
-            # Display the counter
-            if percentage_difference >= 0:
-                st.write(f"**You still have to allocate {percentage_difference} percent probability.**")
-            else:
-                st.write(f'**:red[You have inserted {abs(percentage_difference)} percent more, please review your percentage distribution.]**')
-
             num_bins = len(bins_grid)
-
-    col1, col2= st.columns(2)
-    with col1:
-        st.write(jsonfile_name['effect_size'])
-        st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
 
     # Return the updated DataFrame
     updated_bins_df = pd.DataFrame(bins_grid)
     
     return updated_bins_df, percentage_difference, num_bins
 
-def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df):
-    st.session_state['submit'] = True
+def effect_size_question(jsonfile_name):
+    col1, col2= st.columns(2)
+    with col1:
+        st.markdown(jsonfile_name['effect_size'])
+        st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
 
-    updated_bins_list = [updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df]
-    transposed_bins_list = []
 
-    for df in updated_bins_list:
-        transposed_df = df.transpose()
-        transposed_bins_list.append(transposed_df)
+def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df):
+    
+    updated_bins_list = [updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df]
+    
+    transposed_bins_list = [df.transpose() for df in updated_bins_list]
     
     # Extracting the first row of each transposed dataframe as column names
-    column_names_q1 = list(transposed_bins_list[0].iloc[0])
-    column_names_q2 = list(transposed_bins_list[1].iloc[0])
-    column_names_q3 = list(transposed_bins_list[2].iloc[0])
-    column_names_q4 = list(transposed_bins_list[3].iloc[0])
-    column_names_q5 = list(transposed_bins_list[4].iloc[0])
+    column_names_list = [list(transposed_df.iloc[0]) for transposed_df in transposed_bins_list]
 
     # Setting the column names for each dataframe
-    transposed_bins_list[0].columns = column_names_q1
-    transposed_bins_list[1].columns = column_names_q2
-    transposed_bins_list[2].columns = column_names_q3
-    transposed_bins_list[3].columns = column_names_q4
-    transposed_bins_list[4].columns = column_names_q5
+    for i, transposed_df in enumerate(transposed_bins_list):
+        transposed_df.columns = column_names_list[i]
 
     # Removing the first row (used as column names) from each dataframe
-    transposed_bins_list[0] = transposed_bins_list[0].iloc[1:]
-    transposed_bins_list[1] = transposed_bins_list[1].iloc[1:]
-    transposed_bins_list[2] = transposed_bins_list[2].iloc[1:]
-    transposed_bins_list[3] = transposed_bins_list[3].iloc[1:]
-    transposed_bins_list[4] = transposed_bins_list[4].iloc[1:]
+    transposed_bins_list = [transposed_df.iloc[1:] for transposed_df in transposed_bins_list]
 
+    # Adding prefix to column names of each dataframe
+    for i, transposed_df in enumerate(transposed_bins_list):
+        prefix = f'Q{i + 1}  '
+        transposed_df.columns = [f'{prefix}{col}' for col in transposed_df.columns]
 
-    # Adding 'Q1' prefix to column names of the first dataframe in the list
-    transposed_bins_list[0].columns = ['Q1  ' + str(col) for col in transposed_bins_list[0].columns]
-    transposed_bins_list[1].columns = ['Q2  ' + str(col) for col in transposed_bins_list[1].columns]
-    transposed_bins_list[2].columns = ['Q3  ' + str(col) for col in transposed_bins_list[2].columns]
-    transposed_bins_list[3].columns = ['Q4  ' + str(col) for col in transposed_bins_list[3].columns]
-    transposed_bins_list[4].columns = ['Q5  ' + str(col) for col in transposed_bins_list[4].columns]
-
-
-    df1 = transposed_bins_list[0]
-    df2 = transposed_bins_list[1]
-    df3 = transposed_bins_list[2]
-    df4 = transposed_bins_list[3]
-    df5 = transposed_bins_list[4]
-
-
-    questions_df = pd.concat([df1,df2.set_index(df1.index), df3.set_index(df1.index), df4.set_index(df1.index), df5.set_index(df1.index)], axis=1)
+    # Concatenating transposed dataframes
+    questions_df = pd.concat(transposed_bins_list, axis=1)
 
     # Resetting index if needed
     questions_df.reset_index(drop=True, inplace=True)
-    
+
     # Update session state
     data = st.session_state['data']
 
@@ -173,8 +158,8 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     MIN_EFF_SIZE_Q1 = 'Minimum Effect Size Q1'
     MIN_EFF_SIZE_Q2 = 'Minimum Effect Size Q2'
     MIN_EFF_SIZE_Q3 = 'Minimum Effect Size Q3'
-    MIN_EFF_SIZE_Q4 = 'Minimum Effect Size Q4'
-    MIN_EFF_SIZE_Q5 = 'Minimum Effect Size Q5'
+    MIN_EFF_SIZE_Q6 = 'Minimum Effect Size Q6'
+    MIN_EFF_SIZE_Q7 = 'Minimum Effect Size Q7'
 
 
     data[USER_FULL_NAME].append(safe_var('user_full_name'))
@@ -184,8 +169,8 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     data[MIN_EFF_SIZE_Q1].append(safe_var('num_input_question1'))
     data[MIN_EFF_SIZE_Q2].append(safe_var('num_input_question2'))
     data[MIN_EFF_SIZE_Q3].append(safe_var('num_input_question3'))
-    data[MIN_EFF_SIZE_Q4].append(safe_var('num_input_question4'))
-    data[MIN_EFF_SIZE_Q5].append(safe_var('num_input_question5'))
+    data[MIN_EFF_SIZE_Q6].append(safe_var('num_input_question6'))
+    data[MIN_EFF_SIZE_Q7].append(safe_var('num_input_question7'))
 
 
     st.session_state['data'] = data
@@ -193,33 +178,34 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     session_state_df = pd.DataFrame(data)
     personal_data_df = session_state_df.iloc[:, :4]
     min_eff_df = session_state_df.iloc[:, 4:]
-
- 
+    st.write(personal_data_df)
+    st.write(min_eff_df)
+    st.write(questions_df)
+    
     concatenated_df = pd.concat([personal_data_df, questions_df.set_index(personal_data_df.index), min_eff_df.set_index(personal_data_df.index)], axis=1)
-
-   
-    #save data to google sheet --> CREATE NEW API CONNECTION FOR THE PROJECT
+    
+    st.session_state['submit'] = True
+    #save data to google sheet
     scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
     
-
-    #creds = ServiceAccountCredentials.from_json_keyfile_name('prior-beliefs-elicitation-keys.json', scope)
     creds = ServiceAccountCredentials.from_json_keyfile_dict(secrets_to_json(), scope)
     client = gspread.authorize(creds)
-
  
-    sheet = client.open("WB project").sheet1
+    sheet = client.open("Survey answers: Romania Case").sheet1
 
     column_names_list = concatenated_df.columns.tolist()
     #test_sheet = client.create(f'Test for Romania').sheet1
-   # sheet_col_update = sheet.append_row([concatenated_df.columns.values.tolist()])
-    column_names = sheet.append_row(column_names_list)
+    #column_names = sheet.append_row(column_names_list)
     sheet_row_update = sheet.append_rows(concatenated_df.values.tolist()) #.values.tolist())
     #duplicate = sheet.duplicate(new_sheet_name='Duplicate data')
     #st.success('Data has been saved successfully.')
     
     #Navigate to the folder in Google Drive. Copy the Folder ID found in the URL. This is everything that comes after “folder/” in the URL.
-   # backup_sheet = client.create(f'Backup_{datetime.now()}', folder_id='').sheet1
-    #backup_sheet = backup_sheet.append_rows(concatenated_df.values.tolist()) #(new_bins_df.iloc[:2].values.tolist())
+    backup_sheet = client.create(f'Backup_{data[USER_FULL_NAME]}_{datetime.now()}', folder_id='1WTHKA2QT-1MDj0PpV5YX_Yboxf4pniJ9').sheet1
+    backup_sheet = backup_sheet.append_rows(concatenated_df.values.tolist()) #(new_bins_df.iloc[:2].values.tolist())
     #backup_sheet.share('', perm_type = 'user', role = 'writer')
 
-    
+@st.cache_data
+def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df.to_csv().encode('utf-8')

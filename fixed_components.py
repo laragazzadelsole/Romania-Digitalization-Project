@@ -40,7 +40,7 @@ def user_professional_category():
     st.selectbox('Please, specify your professional category:', ('Policymaker', 'Expert', 'Entrepreneur/Manager'), key="professional_category")
 
 def years_of_experience():
-    st.number_input('Please, insert the years of experience you have:', min_value= 0, key = 'years_of_experience')
+    st.number_input('Please, insert the years of experience you have working on digitalization topics:', min_value= 0, key = 'years_of_experience')
 
 
 def personal_information():
@@ -93,18 +93,18 @@ def instructions():
     with table:
 
         # Create some example data as a Pandas DataFrame
-        values_column = list(range(10, 31))
+        values_column = list(range(15, 31))
         zeros_column = [0 for _ in values_column]
         data = {'Temperature': values_column, 'Probability': zeros_column}
         df = pd.DataFrame(data)
 
-        df.at[0, "Temperature"] = '< 10'
-        df.at[20, "Temperature"] = '> 30'
-        df.at[13, "Probability"] = 5
-        df.at[14, "Probability"] = 15
-        df.at[15, "Probability"] = 45
-        df.at[16, "Probability"] = 20
-        df.at[17, "Probability"] = 15
+        df.at[0, "Temperature"] = '< 15'
+        df.at[15, "Temperature"] = '> 30'
+        df.at[8, "Probability"] = 5
+        df.at[9, "Probability"] = 15
+        df.at[10, "Probability"] = 45
+        df.at[11, "Probability"] = 20
+        df.at[12, "Probability"] = 15
 
         df['Temperature'] = df['Temperature'].astype('str')
         edited_data = st.data_editor(df, use_container_width=True, hide_index=True, disabled=('Temperature', "Probability"))
