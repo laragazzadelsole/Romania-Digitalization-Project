@@ -1,12 +1,113 @@
 {
     "header": {
       "survey_title": "Foundational Digital Transformation in North-East Romania",
-      "survey_description": "This research study aims to investigate the effectiveness of the Smart Specialisation Program by rigorously evaluating the adoption of digital technologies by small and medium enterprises (SMEs) in Romania's North-East region.  \nThe program is designed to provide financial assistance to eligible SMEs, facilitating their acquisition of ICT hardware, development or adaptation of software applications/licenses, acquisition of AI systems, website development, and enhancement of IT infrastructure.\n\nBy comparing firms selected to participate in the program to those not selected to participate in a random assignment process, we seek to establish causal relationships between digitalization and its corresponding outcomes, while also distinguishing the effects for various types of firms.\n\nNon-refundable financial support will be provided to eligible SMEs, with a maximum project contribution of 90% of the eligible investment value.  \nTotal financial allocation is of 51.4 millions Euros and is carried out by launching calls for projects (min 15.000 Euros, max 100.000 Euros per firm).  \nThe focus is on increasing digital intensity, supporting the use of digital tools, equipment, and services by creating internet pages, digital promotion, cloud hosting services, e-commerce, digitalization of communication with clients, data collection, buying ICT hardware, and developing or adapting software applications/licenses.\n\nThe following 10 questions regard your beliefs on, what is called in technical terms, the intention-to-treat effect (ITT). It is the effect of BEING OFFERED the full program, regardless of whether or not a firm decides to participate.  \nIn other words, you will be asked what you think it is the likely impact of the program for the firms that are offered the intervention, compared to those that do not participate to the program."
+      "survey_description": "The North-East Regional Development Agency - Managing Authority for North-East RP (2021-2027) - has partnered with the World Bank and leading experts from London Business School to investigate the effectiveness of the North East Romania Digitalization Program by rigorously evaluating the adoption of digital technologies by small- and medium-sized enterprises (SMEs) in digitalization.\n\nThe study sample consists of 1,038 eligible firms, characterized by an average profit of approximately 695,012.5 LEIS (around $145,952.6 USD), and an average workforce of 13.7 employees. These firms have an average Digital Economy and Society Index (DESI) score of 4.3 out of 12, indicating varying degrees of digitalization. Key digitalization aspects include widespread use of connected mobile devices, high-speed internet connections, significant internet use among employees, active social media presence, website ownership, electronic invoicing, smartphone usage, paid internet advertising, complex web functionalities, cloud computing, and notable e-commerce sales. Sector-wise, 18.79% of firms are in Wholesale and Retail Trade; Repair of Motor Vehicles, followed by 16.09% in Professional, Scientific, and Technical Activities, 11.95% in Manufacturing, 11.37% in Human Health and Social Work Activities, and 10.98% in Construction, with other sectors having less representation. Geographically, only a small fraction of these firms, 9.3%, view Europe as their marketplace, and an even smaller percentage, 4.4%, consider their market to be global.\n\nThe program is designed to provide financial assistance to eligible SMEs, facilitating their acquisition of ICT hardware, development or adaptation of software applications/licenses, acquisition of AI systems, website development, and enhancement of IT infrastructure.\n\nBy comparing firms selected to participate in the program to those not selected to participate in a random assignment process, we seek to establish causal relationships between digitalization and its corresponding outcomes, while also distinguishing the effects for various types of firms.\n\nNon-refundable financial support will be provided to eligible SMEs, with a maximum project contribution of 90% of the eligible investment value.  \nTotal financial allocation is of 51.4 millions Euros and is carried out by launching calls for projects (min 15.000 Euros, max 100.000 Euros per firm).  \nThe focus is on increasing digital intensity, supporting the use of digital tools, equipment, and services by creating internet pages, digital promotion, cloud hosting services, e-commerce, digitalization of communication with clients, data collection, buying ICT hardware, and developing or adapting software applications/licenses.\n\nThe following 12 questions regard your beliefs on, what is called in technical terms, the intention-to-treat effect (ITT). It is the effect of BEING OFFERED the full program, regardless of whether or not a firm decides to participate.  \nIn other words, you will be asked what you think it is the likely impact of the program for the firms that are offered the intervention, compared to those that do not participate to the program.\n\nYour opinion matters and we'd like to thank you with a gift. To show our appreciation for your time and honest feedback, we're offering a chance to win an Amazon voucher. Upon a careful completion of the survey, you'll be entered into a draw to win an Amazon voucher worth [value of the voucher]. Please think carefully about your answers, your perspective can make a significant difference!"
     },
+
     "question1": {
       "question_number": "Question 1",
       "key_form": "key_form1",
-      "title_question": "Question 1 - Full-time Employees",
+      "title_question": "Question 1 - Internally Focused Digitization Tools",
+      "subtitle_question": "On average, what percentage of the internally focused digitization tools or technologies listed below do you think will be newly adopted in the SMEs selected for the program via the RCT method, after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group? The internally focused digitization tools include: Computers with Internet access, Cloud Computing, Automation Software, Internal Communication Platforms and Data Analytics.  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "column_1": "% Newly adoption of internally focused digitization tools",
+      "column_2": "Probabilities",
+      "minor_value": "0",
+      "min_value_graph": 5,
+      "max_value_graph": 95,
+      "step_size_graph": 5,
+      "major_value": "100",
+      "key": "data_editor1",
+      "title_x_axis": "Annual Net Profit",
+      "title_y_axis": "Probabilities",
+      "title_barchart": "Distribution of your Beliefs",
+      "num_input_question": "num_input_question1",
+      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the adoption of new internally focused digitization tools to increase by at least 5%, you should give 5 as your answer."
+    },
+
+    "question2": {
+      "question_number": "Question 2",
+      "key_form": "key_form2",
+      "title_question": "Question 2 - Externally Focused Digitization Tools",
+      "subtitle_question": "On average, what percentage of the externally focused digitization tools or technologies listed below do you think that will be newly adopted in the SMEs selected for the program via the RCT method, after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group? The externally focused digitization tools include: E-commerce Platforms, Digital Marketing Tools, Customer Relationship Management (CRM) Software, Social Media Engagement Tools and Electonic Invoices.  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "column_1": "% Newly adoption of externally focused digitization tools",
+      "column_2": "Probabilities",
+      "minor_value": "0",
+      "min_value_graph": 5,
+      "max_value_graph": 95,
+      "step_size_graph": 5,
+      "major_value": "100",
+      "key": "data_editor2",
+      "title_x_axis": "Annual Net Profit",
+      "title_y_axis": "Probabilities",
+      "title_barchart": "Distribution of your Beliefs",
+      "num_input_question": "num_input_question2",
+      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the adoption of new externally focused digitization tools to increase by at least 5%, you should give 5 as your answer."
+    },
+
+    "question3": {
+      "question_number": "Question 3",
+      "key_form": "key_form3",
+      "title_question": "Question 3 - New Customers Acquisition",
+      "subtitle_question": "On average, how much do you think that the SMEs selected for the program via the RCT method, after 2 years since firms received the money, have increased the number of customers outside Romania's borders, compared to non-beneficiaries SMEs from the comparison group?  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "column_1": "% Newly adoption of externally focused digitization tools",
+      "column_2": "Probabilities",
+      "minor_value": "<-15.0",
+      "min_value_graph": -15,
+      "max_value_graph": 15,
+      "step_size_graph": 5,
+      "major_value": ">15",
+      "key": "data_editor3",
+      "title_x_axis": "Annual Net Profit",
+      "title_y_axis": "Probabilities",
+      "title_barchart": "Distribution of your Beliefs",
+      "num_input_question": "num_input_question3",
+      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the increment of customers outside Romania's borders to increase by at least 5%, you should give 5 as your answer."
+    },
+
+    "question4": {
+      "question_number": "Question 4",
+      "key_form": "key_form4",
+      "title_question": "Question 4 - Annual Revenue",
+      "subtitle_question": "On average, how much do you think that the annual revenue would increase in the SMEs selected for the program via the RCT method after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group?  \nRevenue is usually defined as the total amount of money received by the firm from its business activities during the course of a year. This includes income from sales of goods and services, rental income, interest, royalties, fees, commissions, and any other business income. It does not include sales tax collected directly from customers and remitted to tax authorities.  \n_Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "column_1": "% Change in Annual Revenue",
+      "column_2": "Probabilities",
+      "minor_value": "<-15.0",
+      "min_value_graph": -15.0,
+      "max_value_graph": 15.0,
+      "step_size_graph": 5.0,
+      "major_value": ">15.0",
+      "key": "data_editor4",
+      "title_x_axis": "Annual Revenue",
+      "title_y_axis": "Probabilities",
+      "title_barchart": "Distribution of your Beliefs",
+      "num_input_question": "num_input_question4",
+      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the annual revenue to increase by at least 5%, you should give 5 as your answer."
+    },
+    
+      "question5": {
+      "question_number": "Question 5",
+      "key_form": "key_form5",
+      "title_question": "Question 5 - Annual Net Profit",
+      "subtitle_question": "On average, how much do you think that the annual net profit would increase in the SMEs selected for the program via the RCT method after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group?  \nNet profit is the amount of income that remains after all operating expenses, taxes, interest, and preferred stock dividends have been deducted from a company's total revenue.  \n _Please allocate the probabilities in the cells corresponding to your beliefs._ ",
+      "column_1": "% Change in Annual Net Profit",
+      "column_2": "Probabilities",
+      "minor_value": "<-15.0",
+      "min_value_graph": -15,
+      "max_value_graph": 15,
+      "step_size_graph": 5,
+      "major_value": ">15.0",
+      "key": "data_editor5",
+      "title_x_axis": "Annual Net Profit",
+      "title_y_axis": "Probabilities",
+      "title_barchart": "Distribution of your Beliefs",
+      "num_input_question": "num_input_question5",
+      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the annual net profit to increase by at least 5%, you should give 5 as your answer."
+    },
+
+    "question6": {
+      "question_number": "Question 6",
+      "key_form": "key_form6",
+      "title_question": "Question 6 - Full-time Employees",
       "subtitle_question": "On average, how much do you think that the total number of full-time employees would increase in the SMEs selected for the program via the RCT method after 2 years since firms received the money, compared to non-beneficiaries firms from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._ ",
       "column_1": "% Change in Full-time Employees",
       "column_2": "Probabilities",
@@ -15,17 +116,17 @@
       "max_value_graph": 15,
       "step_size_graph": 5,
       "major_value": ">15.0",
-      "key": "data_editor1",
+      "key": "data_editor6",
       "title_x_axis": "Employment Level",
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs", 
-      "num_input_question": "num_input_question1",
+      "num_input_question": "num_input_question6",
       "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of employees to increase by at least 5%, you should give 5 as your answer."
     },
-      "question2": {
-      "question_number": "Question 2",
-      "key_form": "key_form2",
-      "title_question": "Question 2 - Positive Impact on Employment in a Neighbouring Country",
+      "question7": {
+      "question_number": "Question 7",
+      "key_form": "key_form7",
+      "title_question": "Question 7 - Positive Impact on Employment in a Neighbouring Country",
       "subtitle_question": "Suppose we found the impact on employment in one of these other neighboring countries was 10%, with a 95% confidence interval of [+5%., +15%]. That is, the program in this other country is estimated to have increased employment by 10% compared to a control group, and it is very likely the effect is between 5 and 15 percent. How, if at all, would this change your beliefs about the impact on employment in Romania?\n_Please look again at the answers you gave in Question 2. If you want to update your estimate insert the new distribution of probabilities, otherwise insert again the same distribution as you did above._ ",
       "column_1": "% Change in Full-time Employees",
       "column_2": "Probabilities",
@@ -34,18 +135,18 @@
       "max_value_graph": 15,
       "step_size_graph": 5,
       "major_value": ">15.0",
-      "key": "data_editor2",
+      "key": "data_editor7",
       "title_x_axis": "",
       "title_y_axis": "Probability",
       "title_barchart": "Distribution of your Beliefs",
-      "num_input_question": "num_input_question2",
+      "num_input_question": "num_input_question7",
       "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of employees to increase by at least 5%, you should give 5 as your answer."
     },
 
-      "question3": {
-      "question_number": "Question 3",
-      "key_form": "key_form3",
-      "title_question": "Question 3 - Negative Impact on Employment in a Neighbouring Country",
+      "question8": {
+      "question_number": "Question 8",
+      "key_form": "key_form8",
+      "title_question": "Question 8 - Negative Impact on Employment in a Neighbouring Country",
       "subtitle_question": "What if, instead, we had found that employment actually fell 5 percent in this other country relative to the control group, with a 95% confidence interval of [-10%., 0%]. That is, the program in this other country is estimated to have led slightly firms to shrink their labor force compared to a control group, and it is very likely the effect is between -10 and 0 percent. How, if at all, would this change your beliefs about the impact on employment in Romania?\n_Please look again at the answers you gave in Question 2. If you want to update your estimate insert the new distribution of probabilities, otherwise insert again the same distribution as you did above._",
       "column_1": "% Change in Full-time Employees",
       "column_2": "Probabilities",
@@ -54,18 +155,18 @@
       "max_value_graph": 15.0,
       "step_size_graph": 5.0,
       "major_value": ">15.0",
-      "key": "data_editor3",
+      "key": "data_editor8",
       "title_x_axis": "Labor Productivity",
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
-      "num_input_question": "num_input_question3",
+      "num_input_question": "num_input_question8",
       "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of employees to increase by at least 5%, you should give 5 as your answer."
     },
 
-    "question4": {
-      "question_number": "Question 4",
-      "key_form": "key_form4",
-      "title_question": "Question 4 - Correlation Example",
+    "question9": {
+      "question_number": "Question 9",
+      "key_form": "key_form9",
+      "title_question": "Question 9 - Correlation Example",
       "subtitle_question": "In statistics, the correlation is a measure of how strongly two outcomes are linearly related. The correlation lies between -1 and 1. A correlation of -1 means that variables move perfectly in the opposite direction to one another, so that if one is high, the other is low. A 0 correlation means no relationship between them, while a correlation of +1 means the two move linearly together. A positive number between 0 and 1 means the two don't move perfectly together, but that you are somewhat more likely to see positive impacts in one variable when you see them somewhere else.\nTo make sure this is clear, let's first consider an example on the weather. What do you think is the correlation between the temperature on a Saturday and on a Sunday if I look at temperatures in all the weekends in a year?\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": "Correlation",
       "column_2": "Probabilities",
@@ -74,18 +175,18 @@
       "max_value_graph": 1,
       "step_size_graph": 0.2,
       "major_value": "1.0",
-      "key": "data_editor4",
+      "key": "data_editor9",
       "title_x_axis": "Labor Productivity",
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
-      "num_input_question": "num_input_question4",
-      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the labor productivity to increase by at least 5%, you should give 5 as your answer."
+      "num_input_question": "num_input_question9",
+      "effect_size": " "
     },
 
-    "question5": {
-      "question_number": "Question 5",
-      "key_form": "key_form5",
-      "title_question": "Question 5 - Correlation between treatment estimates in Romania and those in another country",
+    "question10": {
+      "question_number": "Question 10",
+      "key_form": "key_form10",
+      "title_question": "Question 10 - Correlation between treatment estimates in Romania and those in another country",
       "subtitle_question": "We would like you to express your beliefs about the correlation you would expect to see between treatment estimates in Romania and those in another country in the region. A negative correlation means you think if a program has a negative impact somewhere else this makes it more likely it has a positive impact in Romania. A 0 correlation means no relationship between what you find elsewhere and what you expect to see in Romania, while a positive correlation means if you think that when programs find a high impact somewhere else you will be more likely to also find a high impact in Romania. A positive number between 0 and 1 means the two don't move perfectly together, but that you are somewhat more likely to see positive impacts in Romania where you see them somewhere else.\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": " Correlation",
       "column_2": "Probabilities",
@@ -94,53 +195,12 @@
       "max_value_graph": 1,
       "step_size_graph": 0.2,
       "major_value": "1.0",
-      "key": "data_editor5",
+      "key": "data_editor10",
       "title_x_axis": "Correlation",
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
-      "num_input_question": "num_input_question5",
-      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the labor productivity to increase by at least 5%, you should give 5 as your answer."
-    },
-
-
-      "question6": {
-      "question_number": "Question 6",
-      "key_form": "key_form6",
-      "title_question": "Question 6 - Annual Revenue",
-      "subtitle_question": "On average, how much do you think that the annual revenue would increase in the SMEs selected for the program via the RCT method after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group?\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
-      "column_1": "% Change in Annual Revenue",
-      "column_2": "Probabilities",
-      "minor_value": "<-15.0",
-      "min_value_graph": -15.0,
-      "max_value_graph": 15.0,
-      "step_size_graph": 5.0,
-      "major_value": ">15.0",
-      "key": "data_editor6",
-      "title_x_axis": "Annual Revenue",
-      "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of your Beliefs",
-      "num_input_question": "num_input_question6",
-      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the annual revenue to increase by at least 5%, you should give 5 as your answer."
-    },
-    
-      "question7": {
-      "question_number": "Question 7",
-      "key_form": "key_form7",
-      "title_question": "Question 7 - Annual Net Profit",
-      "subtitle_question": "On average, how much do you think that the annual net profit would increase in the SMEs selected for the program via the RCT method after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group?\n _Please allocate the probabilities in the cells corresponding to your beliefs._ ",
-      "column_1": "% Change in Annual Net Profit",
-      "column_2": "Probabilities",
-      "minor_value": "<-15.0",
-      "min_value_graph": -15,
-      "max_value_graph": 15,
-      "step_size_graph": 5,
-      "major_value": ">15.0",
-      "key": "data_editor7",
-      "title_x_axis": "Annual Net Profit",
-      "title_y_axis": "Probabilities",
-      "title_barchart": "Distribution of your Beliefs",
-      "num_input_question": "num_input_question7",
-      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the annual net profit to increase by at least 5%, you should give 5 as your answer."
+      "num_input_question": "num_input_question10",
+      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the correlation to be at least 5%, you should give 5 as your answer."
     }
 
 }

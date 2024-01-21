@@ -22,11 +22,11 @@ def initialize_session_state():
         st.session_state['submit'] = False
         st.session_state['No answer'] = ''
     
-    if 'personal_data_df' not in st.session_state:
-        st.session_state['personal_data_df'] = pd.DataFrame(columns=['User Full Name', 'User Working Position', 'User Professional Category', 'User Years of Experience'])
+   # if 'personal_data_df' not in st.session_state:
+       # personal_data_df = st.session_state['personal_data_df'] = pd.DataFrame(columns=['User Full Name', 'User Working Position', 'User Professional Category', 'User Years of Experience'])
 
-    if 'min_eff_df' not in st.session_state:
-        st.session_state['min_eff_df'] = pd.DataFrame(columns=['Minimum Effect Size Q1', 'Minimum Effect Size Q2', 'Minimum Effect Size Q3', 'Minimum Effect Size Q6', 'Minimum Effect Size Q7'])
+    #if 'min_eff_df' not in st.session_state:
+       # st.session_state['min_eff_df'] = pd.DataFrame(columns=['Minimum Effect Size Q1', 'Minimum Effect Size Q2', 'Minimum Effect Size Q3', 'Minimum Effect Size Q6', 'Minimum Effect Size Q7', 'Minimum Effect Size Q8', 'Minimum Effect Size Q9', 'Minimum Effect Size Q10'])
     
     if 'data' not in st.session_state:
         st.session_state['data'] = {
@@ -37,8 +37,18 @@ def initialize_session_state():
             'Minimum Effect Size Q1': [],
             'Minimum Effect Size Q2': [],    
             'Minimum Effect Size Q3': [],
+            'Minimum Effect Size Q4': [],
+            'Minimum Effect Size Q5': [],
             'Minimum Effect Size Q6': [],
-            'Minimum Effect Size Q7': []
+            'Minimum Effect Size Q7': [],
+            'Minimum Effect Size Q8': [],
+            'Minimum Effect Size Q10': [],
+            'Cost-Benefit Ratio': [],
+            'Risk Aversion': [],
+            'RCT Q1': [],
+            'RCT Q2': [],
+            'RCT Q3': [],
+            'RCT Q4': []
             }
     
 def safe_var(key):
@@ -120,10 +130,22 @@ def effect_size_question(jsonfile_name):
         st.markdown(jsonfile_name['effect_size'])
         st.number_input('Click to increase and decrease the counter or directly insert the number.', min_value=0, max_value=10000, key = jsonfile_name['num_input_question'])
 
+def RCT_questions():
+    st.subheader('Questions on RCTs Evaluation')
+    st.write('This section is meant for policymakers only. We would like to know your opinion regarding RCTs programs.')
+    st.write('1. After my experience in being involved in this project, I am:')
+    st.radio('Choose one of the following options:', ['More interested in using RCTs for evaluation of other government projects', 'Just as interested in using RCTs for evaluation of other government projects as I was before starting this one', 'Less interested in using RCTs for evaluation of other government projects'], key ='RCT_question1')
+    st.write('2. We would like you to compare your experiences on this project that we are evaluating through an experiment to similar government projects you have worked on that have not had such an evaluation. Can you please compare this project to similar projects without an experimental evaluation in terms of:')
+    st.write('- Design of the intervention')
+    st.radio('Choose one of the following options:', ['The RCT improved the design of the intervention relative to projects without an RCT', 'The RCT did not change the design', 'The RCT led the intervention to be designed less well than projects without an RCT'], key='RCT_question2')
+    st.write('- Speed of Implementation')
+    st.radio('Choose one of the following options:', ['The RCT sped up implementation of the project', 'The RCT did not change the speed', 'The RCT slowed down the speed of implementation'], key='RCT_question3')
+    st.write('- Trustiworthiness of program impacts')
+    st.radio('Choose one of the following options:', ['I will trust estimates of the programs impacts from this RCT more than of other programs that use our standard M&E', "I will trust estimates of this program's impacts equally as much as other programs that use our standard M&E", "I will trust estimates of this program's impacts from the RCT less than those of other programs that use our standard M&E"], key='RCT_question4')
 
-def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df):
+def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df):
     
-    updated_bins_list = [updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df]
+    updated_bins_list = [updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df]
     
     transposed_bins_list = [df.transpose() for df in updated_bins_list]
     
@@ -158,8 +180,19 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     MIN_EFF_SIZE_Q1 = 'Minimum Effect Size Q1'
     MIN_EFF_SIZE_Q2 = 'Minimum Effect Size Q2'
     MIN_EFF_SIZE_Q3 = 'Minimum Effect Size Q3'
+    MIN_EFF_SIZE_Q4 = 'Minimum Effect Size Q4'
+    MIN_EFF_SIZE_Q5 = 'Minimum Effect Size Q5'
     MIN_EFF_SIZE_Q6 = 'Minimum Effect Size Q6'
     MIN_EFF_SIZE_Q7 = 'Minimum Effect Size Q7'
+    MIN_EFF_SIZE_Q8 = 'Minimum Effect Size Q8'
+    #MIN_EFF_SIZE_Q9 = 'Minimum Effect Size Q9'
+    MIN_EFF_SIZE_Q10 = 'Minimum Effect Size Q10'
+    COST_BENEFIT_RATIO = 'Cost-Benefit Ratio'
+    RISK_AVERSION = 'Risk Aversion'
+    RCT_Q1 = 'RCT Q1'
+    RCT_Q2 = 'RCT Q2'
+    RCT_Q3 = 'RCT Q3'
+    RCT_Q4 = 'RCT Q4'
 
 
     data[USER_FULL_NAME].append(safe_var('user_full_name'))
@@ -169,19 +202,26 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     data[MIN_EFF_SIZE_Q1].append(safe_var('num_input_question1'))
     data[MIN_EFF_SIZE_Q2].append(safe_var('num_input_question2'))
     data[MIN_EFF_SIZE_Q3].append(safe_var('num_input_question3'))
+    data[MIN_EFF_SIZE_Q4].append(safe_var('num_input_question4'))
+    data[MIN_EFF_SIZE_Q5].append(safe_var('num_input_question5'))
     data[MIN_EFF_SIZE_Q6].append(safe_var('num_input_question6'))
     data[MIN_EFF_SIZE_Q7].append(safe_var('num_input_question7'))
-
+    data[MIN_EFF_SIZE_Q8].append(safe_var('num_input_question8'))
+    #data[MIN_EFF_SIZE_Q9].append(safe_var('num_input_question9'))
+    data[MIN_EFF_SIZE_Q10].append(safe_var('num_input_question10'))
+    data[COST_BENEFIT_RATIO].append(safe_var('cost_benefit'))
+    data[RISK_AVERSION].append(safe_var('risk_aversion'))
+    data[RCT_Q1].append(safe_var('RCT_question1'))
+    data[RCT_Q2].append(safe_var('RCT_question2'))
+    data[RCT_Q3].append(safe_var('RCT_question3'))
+    data[RCT_Q4].append(safe_var('RCT_question4'))
 
     st.session_state['data'] = data
     
     session_state_df = pd.DataFrame(data)
     personal_data_df = session_state_df.iloc[:, :4]
     min_eff_df = session_state_df.iloc[:, 4:]
-    st.write(personal_data_df)
-    st.write(min_eff_df)
-    st.write(questions_df)
-    
+
     concatenated_df = pd.concat([personal_data_df, questions_df.set_index(personal_data_df.index), min_eff_df.set_index(personal_data_df.index)], axis=1)
     
     st.session_state['submit'] = True
