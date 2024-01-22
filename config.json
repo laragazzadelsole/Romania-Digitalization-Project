@@ -7,9 +7,9 @@
     "question1": {
       "question_number": "Question 1",
       "key_form": "key_form1",
-      "title_question": "Question 1 - Internally Focused Digitization Tools",
-      "subtitle_question": "On average, what percentage of the internally focused digitization tools or technologies listed below do you think will be newly adopted in the SMEs selected for the program via the RCT method, after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group? The internally focused digitization tools include: Computers with Internet access, Cloud Computing, Automation Software, Internal Communication Platforms and Data Analytics.  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
-      "column_1": "% Newly adoption of internally focused digitization tools",
+      "title_question": "Question 1 - Internally Focused Digitalization Tools",
+      "subtitle_question": "On average, what percentage of the internally focused digitalization tools or technologies listed below do you think will be newly adopted in the SMEs selected for the program via the RCT method, after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group? The internally focused digitalization tools include: Computers with Internet access, Cloud Computing, Automation Software, Internal Communication Platforms and Data Analytics.  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "column_1": "% Newly adoption of internally focused digitalization tools",
       "column_2": "Probabilities",
       "minor_value": "0",
       "min_value_graph": 5,
@@ -21,15 +21,15 @@
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question1",
-      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the adoption of new internally focused digitization tools to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the adoption of new internally focused digitalization tools to increase by at least 5%, you should give 5 as your answer."
     },
 
     "question2": {
       "question_number": "Question 2",
       "key_form": "key_form2",
-      "title_question": "Question 2 - Externally Focused Digitization Tools",
-      "subtitle_question": "On average, what percentage of the externally focused digitization tools or technologies listed below do you think that will be newly adopted in the SMEs selected for the program via the RCT method, after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group? The externally focused digitization tools include: E-commerce Platforms, Digital Marketing Tools, Customer Relationship Management (CRM) Software, Social Media Engagement Tools and Electonic Invoices.  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
-      "column_1": "% Newly adoption of externally focused digitization tools",
+      "title_question": "Question 2 - Externally Focused Digitalization Tools",
+      "subtitle_question": "On average, what percentage of the externally focused digitalization tools or technologies listed below do you think that will be newly adopted in the SMEs selected for the program via the RCT method, after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group? The externally focused digitalization tools include: E-commerce Platforms, Digital Marketing Tools, Customer Relationship Management (CRM) Software, Social Media Engagement Tools and Electonic Invoices.  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
+      "column_1": "% Newly adoption of externally focused digitalization tools",
       "column_2": "Probabilities",
       "minor_value": "0",
       "min_value_graph": 5,
@@ -41,7 +41,7 @@
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question2",
-      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the adoption of new externally focused digitization tools to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "- What would be the minimum effect size you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the adoption of new externally focused digitalization tools to increase by at least 5%, you should give 5 as your answer."
     },
 
     "question3": {
@@ -49,7 +49,7 @@
       "key_form": "key_form3",
       "title_question": "Question 3 - New Customers Acquisition",
       "subtitle_question": "On average, how much do you think that the SMEs selected for the program via the RCT method, after 2 years since firms received the money, have increased the number of customers outside Romania's borders, compared to non-beneficiaries SMEs from the comparison group?  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
-      "column_1": "% Newly adoption of externally focused digitization tools",
+      "column_1": "% Newly adoption of externally focused digitalization tools",
       "column_2": "Probabilities",
       "minor_value": "<-15.0",
       "min_value_graph": -15,
@@ -186,7 +186,7 @@
     "question10": {
       "question_number": "Question 10",
       "key_form": "key_form10",
-      "title_question": "Question 10 - Correlation between treatment estimates in Romania and those in another country",
+      "title_question": "Question 10 - Correlation Between Treatment Estimates in Romania and Those in Another Country",
       "subtitle_question": "We would like you to express your beliefs about the correlation you would expect to see between treatment estimates in Romania and those in another country in the region. A negative correlation means you think if a program has a negative impact somewhere else this makes it more likely it has a positive impact in Romania. A 0 correlation means no relationship between what you find elsewhere and what you expect to see in Romania, while a positive correlation means if you think that when programs find a high impact somewhere else you will be more likely to also find a high impact in Romania. A positive number between 0 and 1 means the two don't move perfectly together, but that you are somewhat more likely to see positive impacts in Romania where you see them somewhere else.\n_Please allocate the probabilities in the cells corresponding to your beliefs._",
       "column_1": " Correlation",
       "column_2": "Probabilities",
