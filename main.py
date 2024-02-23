@@ -20,7 +20,7 @@ consent_form()
 
 #list needed later in the cost/benefit question
 cost_benefit_list = []
-cost_benefit_list = [f"1:{round(i, 1)}" for i in np.arange(1, 3.1, .2)]
+cost_benefit_list = [f"1:{round(i, 1)}" for i in np.arange(0.6, 3.1, .2)]
 
 if st.session_state['consent']:
 
@@ -67,9 +67,10 @@ if st.session_state['consent']:
     with col2:
         st.image("SatSunGraph.png", width = 700)
     st.write("Saturday and Sunday temperatures in Washington DC for each weekend in 2022. As we might expect, there is a strong correlation between the temperature on a Saturday and on the Sunday, since some parts of the year are hot, and others colder. The correlation here is 0.88.")
+    
     q10_config = config['question10']
     updated_bins_question_10_df, percentage_difference10, num_bins10 = create_question(q10_config)
-    effect_size_question10 = effect_size_question(q10_config)
+    #effect_size_question10 = effect_size_question(q10_config)
     
 
     percentage_differences = [percentage_difference1, percentage_difference2] #, percentage_difference3, percentage_difference4, percentage_difference5
@@ -90,8 +91,9 @@ if st.session_state['consent']:
     with col1:   
         st.slider("Please move the slider to indicate your preference.", 1, 10, key= "risk_aversion")
 
-    if st.session_state['professional_category'] == 'Policymaker':
+    if st.session_state['professional_category'] in ['Government Official/Donor', 'Program Implementer/Practitioner']:
         RCT_questions() 
+
     
     # Submission button + saving data 
     if all(percentage == 0 for percentage in percentage_differences):

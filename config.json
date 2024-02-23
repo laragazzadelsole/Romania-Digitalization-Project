@@ -1,7 +1,7 @@
 {
     "header": {
       "survey_title": "Foundational Digital Transformation in North-East Romania",
-      "survey_description": "The North-East Regional Development Agency - Managing Authority for North-East RP (2021-2027) - has partnered with the World Bank and leading experts from London Business School to investigate the effectiveness of the North East Romania Digitalization Program by rigorously evaluating the adoption of digital technologies by small- and medium-sized enterprises (SMEs).\n\nThe study sample consists of 1,038 eligible firms, characterized by an average profit of approximately 695,000 RON (around $146,000 USD), and an average workforce of 14 employees. These firms have an average Digital Economy and Society Index (DESI) score of 4.3 out of 12, indicating relatively low digitalization. Key digitalization aspects measured by DESI include widespread use of connected mobile devices, high-speed internet connections, significant internet use among employees, active social media presence, website ownership, electronic invoicing, smartphone usage, paid internet advertising, complex web functionalities, cloud computing, and notable e-commerce sales. Sector-wise, 18.8% of firms are in Wholesale and Retail Trade, repair of Motor Vehicles, followed by 16% in Professional, Scientific, and Technical Activities, 12% in Manufacturing, 11.4% in Human Health and Social Work Activities, and 11% in Construction, with other sectors having less representation. Geographically, only a small fraction of these firms (9.3%) view Europe as their marketplace, and an even smaller percentage (4.4%) consider their market to be global.\n\nThe program is designed to provide financial assistance to eligible SMEs, facilitating their acquisition of ICT hardware, development or adaptation of software applications/licenses, acquisition of AI systems, website development, and enhancement of IT infrastructure.\n\nBy comparing firms selected to participate in the program to those not selected to participate in a random assignment process, we seek to establish causal relationships between digitalization and its corresponding outcomes, while also distinguishing the effects for various types of firms.\n\nNon-refundable financial support will be provided to eligible SMEs, with a maximum project contribution of 90% of the eligible investment value.  \nTotal financial allocation is of 51.4 millions Euros and is carried out by launching calls for projects (min 15.000 Euros, max 100.000 Euros per firm).  \nThe focus is on increasing digital intensity, supporting the use of digital tools, equipment, and services by creating internet pages, digital promotion, cloud hosting services, e-commerce, digitalization of communication with clients, data collection, buying ICT hardware, and developing or adapting software applications/licenses.\n\nIn the following 12 questions you will be asked what you think it is the likely impact of the program for the firms that are offered the intervention, compared to those that do not participate to the program. It is the effect of BEING OFFERED the full program, regardless of whether or not a firm decides to participate, which is called, in technical terms, the intention-to-treat effect (ITT).\n\nYour opinion matters and we'd like to thank you with a gift. To show our appreciation for your time and honest feedback, we're offering a chance to win an Amazon voucher. Upon a careful completion of the survey, you'll be entered into a draw to win an Amazon voucher worth [value of the voucher]. Please think carefully about your answers, your perspective can make a significant difference!"
+      "survey_description": "Please be advised that this survey is resource-intensive and demands significant RAM for optimal performance. To avoid potential slowdowns, , ensure all open windows and background programs are closed. Additionally, a stable internet connection is necessary for smooth operation.\n\nThe North-East Regional Development Agency - Managing Authority for North-East RP (2021-2027) - has partnered with the World Bank and leading experts from London Business School to investigate the effectiveness of the North East Romania Digitalization Program by rigorously evaluating the adoption of digital technologies by small- and medium-sized enterprises (SMEs).\n\nThe study sample consists of 1,038 eligible firms, characterized by an average profit of approximately 695,000 RON (around $146,000 USD), and an average workforce of 14 employees. These firms have an average Digital Economy and Society Index (DESI) score of 4.3 out of 12, indicating relatively low digitalization. Key digitalization aspects measured by DESI include widespread use of connected mobile devices, high-speed internet connections, significant internet use among employees, active social media presence, website ownership, electronic invoicing, smartphone usage, paid internet advertising, complex web functionalities, cloud computing, and notable e-commerce sales. Sector-wise, 18.8% of firms are in Wholesale and Retail Trade, repair of Motor Vehicles, followed by 16% in Professional, Scientific, and Technical Activities, 12% in Manufacturing, 11.4% in Human Health and Social Work Activities, and 11% in Construction, with other sectors having less representation. Geographically, only a small fraction of these firms (9.3%) view Europe as their marketplace, and an even smaller percentage (4.4%) consider their market to be global.\n\nThe program is designed to provide financial assistance to eligible SMEs, facilitating their acquisition of ICT hardware, development or adaptation of software applications/licenses, acquisition of AI systems, website development, and enhancement of IT infrastructure.\n\nBy comparing firms selected to participate in the program to those not selected to participate in a random assignment process, we seek to establish causal relationships between digitalization and its corresponding outcomes, while also distinguishing the effects for various types of firms.\n\nNon-refundable financial support will be provided to eligible SMEs, with a maximum project contribution of 90% of the eligible investment value.  \nTotal financial allocation is of 51.4 millions Euros and is carried out by launching calls for projects (min 15.000 Euros, max 100.000 Euros per firm).  \nThe focus is on increasing digital intensity, supporting the use of digital tools, equipment, and services by creating internet pages, digital promotion, cloud hosting services, e-commerce, digitalization of communication with clients, data collection, buying ICT hardware, and developing or adapting software applications/licenses.\n\nIn the following 12 questions you will be asked what you think it is the likely impact of the program for the firms that are offered the intervention, compared to those that do not participate to the program. It is the effect of BEING OFFERED the full program, regardless of whether or not a firm decides to participate, which is called, in technical terms, the intention-to-treat effect (ITT).\n\nYour opinion matters and we'd like to thank you with a gift. To show our appreciation for your time and honest feedback, we're offering a chance to win an Amazon voucher. Upon a careful completion of the survey, you'll be entered into a draw to win an Amazon voucher worth [value of the voucher]. Please think carefully about your answers, your perspective can make a significant difference!"
     },
 
     "question1": {
@@ -9,11 +9,11 @@
       "key_form": "key_form1",
       "title_question": "Question 1 - Internally Focused Digitalization Tools",
       "subtitle_question": "On average, what percentage of the internally focused digitalization tools or technologies listed below do you think will be newly adopted in the SMEs selected for the program via the RCT method, after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group? The internally focused digitalization tools include: Computers with Internet access, Cloud Computing, Automation Software, Internal Communication Platforms and Data Analytics.  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
-      "column_1": "% Newly adoption of internally focused digitalization tools",
+      "column_1": "Percentage Points of Newly Adopted Internally Digitalization Tools",
       "column_2": "Probabilities",
       "minor_value": "0",
-      "min_value_graph": 5,
-      "max_value_graph": 95,
+      "min_value_graph": 0,
+      "max_value_graph": 100,
       "step_size_graph": 5,
       "major_value": "100",
       "key": "data_editor1",
@@ -21,7 +21,7 @@
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question1",
-      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the adoption of new internally focused digitalization tools to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the adoption of new internally focused digitalization tools to increase by at least X%, you should give X as your answer."
     },
 
     "question2": {
@@ -29,11 +29,11 @@
       "key_form": "key_form2",
       "title_question": "Question 2 - Externally Focused Digitalization Tools",
       "subtitle_question": "On average, what percentage of the externally focused digitalization tools or technologies listed below do you think that will be newly adopted in the SMEs selected for the program via the RCT method, after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group? The externally focused digitalization tools include: E-commerce Platforms, Digital Marketing Tools, Customer Relationship Management (CRM) Software, Social Media Engagement Tools and Electonic Invoices.  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
-      "column_1": "% Newly adoption of externally focused digitalization tools",
+      "column_1": "Percentage Points of Newly Adopted Externally Digitalization Tools",
       "column_2": "Probabilities",
       "minor_value": "0",
-      "min_value_graph": 5,
-      "max_value_graph": 95,
+      "min_value_graph": 0,
+      "max_value_graph": 100,
       "step_size_graph": 5,
       "major_value": "100",
       "key": "data_editor2",
@@ -41,7 +41,7 @@
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question2",
-      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the adoption of new externally focused digitalization tools to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the adoption of new externally focused digitalization tools to increase by at least X%, you should give X as your answer."
     },
 
     "question3": {
@@ -49,7 +49,7 @@
       "key_form": "key_form3",
       "title_question": "Question 3 - New Customers Acquisition",
       "subtitle_question": "On average, how much do you think that the SMEs selected for the program via the RCT method, after 2 years since firms received the money, have increased the number of customers outside Romania's borders, compared to non-beneficiaries SMEs from the comparison group?  \n _Please allocate the probabilities in the cells corresponding to your beliefs._",
-      "column_1": "% Newly adoption of externally focused digitalization tools",
+      "column_1": "Percentage Points of Newly Adopted Costumers",
       "column_2": "Probabilities",
       "minor_value": "<-15.0",
       "min_value_graph": -15,
@@ -61,7 +61,7 @@
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question3",
-      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the increment of customers outside Romania's borders to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the increment of customers outside Romania's borders to increase by at least X%, you should give X as your answer."
     },
 
     "question4": {
@@ -69,7 +69,7 @@
       "key_form": "key_form4",
       "title_question": "Question 4 - Annual Revenue",
       "subtitle_question": "On average, how much do you think that the annual revenue would increase in the SMEs selected for the program via the RCT method after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group?  \nRevenue is usually defined as the total amount of money received by the firm from its business activities during the course of a year. This includes income from sales of goods and services, rental income, interest, royalties, fees, commissions, and any other business income. It does not include sales tax collected directly from customers and remitted to tax authorities.  \n_Please allocate the probabilities in the cells corresponding to your beliefs._",
-      "column_1": "% Change in Annual Revenue",
+      "column_1": "Percentage Points Change in Annual Revenue",
       "column_2": "Probabilities",
       "minor_value": "<-15.0",
       "min_value_graph": -15.0,
@@ -81,7 +81,7 @@
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question4",
-      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the annual revenue to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the annual revenue to increase by at least X%, you should give X as your answer."
     },
     
       "question5": {
@@ -89,7 +89,7 @@
       "key_form": "key_form5",
       "title_question": "Question 5 - Annual Net Profit",
       "subtitle_question": "On average, how much do you think that the annual net profit would increase in the SMEs selected for the program via the RCT method after 2 years since firms received the money, compared to non-beneficiaries SMEs from the comparison group?  \nNet profit is the amount of income that remains after all operating expenses, taxes, interest, and preferred stock dividends have been deducted from a company's total revenue.  \n _Please allocate the probabilities in the cells corresponding to your beliefs._ ",
-      "column_1": "% Change in Annual Net Profit",
+      "column_1": "Percentage Points Change in Annual Net Profit",
       "column_2": "Probabilities",
       "minor_value": "<-15.0",
       "min_value_graph": -15,
@@ -101,7 +101,7 @@
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question5",
-      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the annual net profit to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the annual net profit to increase by at least X%, you should give X as your answer."
     },
 
     "question6": {
@@ -121,7 +121,7 @@
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs", 
       "num_input_question": "num_input_question6",
-      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of employees to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of employees to increase by at least X%, you should give X as your answer."
     },
       "question7": {
       "question_number": "Question 7",
@@ -140,7 +140,7 @@
       "title_y_axis": "Probability",
       "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question7",
-      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of employees to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of employees to increase by at least X%, you should give X as your answer."
     },
 
       "question8": {
@@ -160,7 +160,7 @@
       "title_y_axis": "Probabilities",
       "title_barchart": "Distribution of your Beliefs",
       "num_input_question": "num_input_question8",
-      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of employees to increase by at least 5%, you should give 5 as your answer."
+      "effect_size": "- What would be the minimum impact you would want to see in order to consider scaling up this program to more firms? Express your answer in percentage points, e.g. if you would want the number of employees to increase by at least X%, you should give X as your answer."
     },
 
     "question9": {

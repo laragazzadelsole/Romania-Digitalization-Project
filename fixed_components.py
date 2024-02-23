@@ -37,7 +37,7 @@ def user_position():
 
 def user_professional_category():
     # Professional Category Checkbox
-    st.selectbox('Please, specify your professional category:', ('Policymaker', 'Expert', 'Entrepreneur/Manager'), key="professional_category")
+    st.selectbox('Please, specify your professional category:', ('Government Official/Donor', 'Program Implementer/Practitioner', 'Researcher'), key="professional_category")
     #st.write("ciao" if 'professional_category' not in st.session_state else st.session_state['professional_category'])
 
 def years_of_experience():
