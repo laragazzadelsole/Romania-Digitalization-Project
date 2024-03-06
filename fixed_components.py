@@ -16,8 +16,6 @@ import altair as alt
 # Insert consent
 def add_consent():
     st.session_state['consent'] = True
-    data = st.session_state['data']
-
 
 def consent_form():
     st.markdown("""
@@ -28,29 +26,13 @@ def consent_form():
         st.markdown("You have consented. Select \"Next\" to start the survey.")
         st.button('Next', on_click=add_consent)
 
-
-def user_full_name():
-    st.text_input("Please, enter your full name and surname:", key = 'user_full_name')
-
-def user_position():
-    st.text_input("Please, enter your working title:", key = 'user_position')
-
-def user_professional_category():
-    # Professional Category Checkbox
-    st.selectbox('Please, specify your professional category:', ('Government Official/Donor', 'Program Implementer/Practitioner', 'Researcher'), key="professional_category")
-    #st.write("ciao" if 'professional_category' not in st.session_state else st.session_state['professional_category'])
-
-def years_of_experience():
-    st.number_input('Please, insert the years of experience you have working on digitalization topics:', min_value= 0, max_value= 70, key = 'years_of_experience')
-
-
 def personal_information():
-    col1, col2= st.columns(2)
+    col1, _ = st.columns(2)
     with col1:
-        user_full_name()
-        user_position()
-        user_professional_category()
-        years_of_experience()
+        st.text_input("Please, enter your full name and surname:", key = 'user_full_name')
+        st.text_input("Please, enter your working title:", key = 'user_position')
+        st.selectbox('Please, specify your professional category:', ('Government Official/Donor', 'Program Implementer/Practitioner', 'Researcher'), key="professional_category")
+        st.number_input('Please, insert the years of experience you have working on digitalization topics:', min_value= 0, max_value= 70, key = 'years_of_experience')
 
 def secrets_to_json():
     return {
@@ -76,7 +58,7 @@ SUBTITLE_INSTRUCTIONS = '''This example is designed to help you understanding th
     As an example, suppose we ask your beliefs of what is going to be the max temperature in Celsius degrees in your city/town tomorrow, it's summer and the weather forecast predicts heavy rain in the morning. 
       
     '''
-CAPTION_INSTRUCTIONS = '''As illustrated in the table, you predicted that there's a 45\% chance of having 25 Celsius degrees, 20% chance of having 26 Celsius degrees and so on. \\
+CAPTION_INSTRUCTIONS = '''As illustrated in the table, you predicted that there's a 45% chance of having 25 Celsius degrees, 20% chance of having 26 Celsius degrees and so on. \\
    The bar graph shows the distribution of the probabilities assigned to the different temperatures.  '''
 
 def instructions():
@@ -91,34 +73,29 @@ def instructions():
 
     #with data_container:
     table, plot = st.columns([0.4, 0.6], gap = "large")
+    
     with table:
-
         # Create some example data as a Pandas DataFrame
-        values_column = list(range(15, 31))
+        values_column = ['< 15'] + list(range(16, 30)) + ['> 30']
         zeros_column = [0 for _ in values_column]
+        zeros_column[8:13] = [5, 15, 45, 20, 15]
+
         data = {'Temperature': values_column, 'Probability': zeros_column}
         df = pd.DataFrame(data)
+
         df['Temperature'] = df['Temperature'].astype('str')
-        
-        df.at[0, "Temperature"] = '< 15'
-        df.at[15, "Temperature"] = '> 30'
-        df.at[8, "Probability"] = 5
-        df.at[9, "Probability"] = 15
-        df.at[10, "Probability"] = 45
-        df.at[11, "Probability"] = 20
-        df.at[12, "Probability"] = 15
-        
-        edited_data = st.data_editor(df, use_container_width=True, hide_index=True, disabled=('Temperature', "Probability"))
+    
+        st.data_editor(df, use_container_width=True, hide_index=True, disabled=('Temperature', "Probability"))
 
     st.write(CAPTION_INSTRUCTIONS)
 
     with plot:
+        # TODO check performance against matplotlib
         chart = alt.Chart(df).mark_bar().encode(
             x=alt.X('Temperature', sort=None),
             y='Probability'
         )
 
-        # Display the chart using st.altair_chart
         st.altair_chart(chart, use_container_width=True)
     
 def submit(): 
