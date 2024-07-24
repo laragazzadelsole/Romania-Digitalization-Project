@@ -88,7 +88,7 @@ def create_question(jsonfile_name):
     with data_container:
         table, plot = st.columns([0.4, 0.6], gap="large")
         with table:
-            bins_grid = st.data_editor(data, key= jsonfile_name['key'], use_container_width=True, hide_index=True, disabled=[jsonfile_name['column_1']])
+            bins_grid = st.data_editor(data, key= jsonfile_name['key'], hide_index=True, use_container_width=True, disabled=[jsonfile_name['column_1']])
 
             percentage_difference = 100 - sum(bins_grid[jsonfile_name['column_2']])
 

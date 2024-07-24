@@ -40,14 +40,17 @@ if st.session_state['consent']:
     q5_config = config['question5']
     updated_bins_question_5_df, percentage_difference5, num_bins5 = create_question(q5_config)
     effect_size_question5 = effect_size_question(q5_config)
+    print(q5_config)
 
     q6_config = config['question6']
     updated_bins_question_6_df, percentage_difference6, num_bins6 = create_question(q6_config)
     effect_size_question6 = effect_size_question(q6_config)
+    print(q6_config )
 
     q7_config = config['question7']
     updated_bins_question_7_df, percentage_difference7, num_bins7 = create_question(q7_config)
     effect_size_question7 = effect_size_question(q7_config)
+    
 
     q8_config = config['question8']
     updated_bins_question_8_df, percentage_difference8, num_bins8 = create_question(q8_config)
