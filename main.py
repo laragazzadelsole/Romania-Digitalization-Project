@@ -77,7 +77,7 @@ if st.session_state['consent']:
     col1, _= st.columns(2)
     with col1:
         # list needed later in the cost/benefit question
-        cost_benefit_list = [f"1:{round(i, 1)}" for i in np.arange(0.6, 3.1, .2)]
+        cost_benefit_list = [f"1:{round(i, 1)}" for i in np.arange(0.6, 3.1, .1)]
         st.select_slider("Please move the slider to indicate your preference.", cost_benefit_list, key = "cost_benefit")
 
     st.subheader("Question 12 - Risk Aversion")

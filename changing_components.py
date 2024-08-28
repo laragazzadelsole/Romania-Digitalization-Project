@@ -127,7 +127,7 @@ def RCT_questions():
     st.radio('Choose one of the following options:', ['The RCT improved the design of the intervention relative to projects without an RCT', 'The RCT did not change the design', 'The RCT led the intervention to be designed less well than projects without an RCT'], key='RCT_question2')
     st.write('- Speed of Implementation')
     st.radio('Choose one of the following options:', ['The RCT sped up implementation of the project', 'The RCT did not change the speed', 'The RCT slowed down the speed of implementation'], key='RCT_question3')
-    st.write('- Trustiworthiness of program impacts')
+    st.write('- Trustworthiness of program impacts')
     st.radio('Choose one of the following options:', ['I will trust estimates of the programs impacts from this RCT more than of other programs that use our standard M&E', "I will trust estimates of this program's impacts equally as much as other programs that use our standard M&E", "I will trust estimates of this program's impacts from the RCT less than those of other programs that use our standard M&E"], key='RCT_question4')
     st.write('- Do you think that thanks to the RCT you reached new beneficiaries? Do you think that it helped you disburse more funds than you originally planned?')
     st.text_input('Please, write about your experience (max 500 characters).',max_chars=500, key = 'RCT_question5')
