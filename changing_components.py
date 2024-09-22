@@ -64,19 +64,17 @@ def create_question(jsonfile_name):
     interval = jsonfile_name['step_size_graph']
     major_value = str(jsonfile_name['major_value'])
 
-    # Create a list of ranges based on the provided values
-    x_axis = [minor_value] + [f"{round(i, 1)}% to {round((i + interval - 0.01), 2)}%" for i in np.arange(min_value, max_value, interval)] + [major_value]
 
     # TODO find a way to remove it
-    if jsonfile_name['min_value_graph'] == -1:
-        x_axis.insert(6, "0%")
-        x_axis[1] = '-0.99% to -0.81%'
-        x_axis[7] = '0.01% to 0.19%'
-    elif jsonfile_name['min_value_graph'] == -15:
+    if min_value == -1:
+        x_axis = [minor_value] + [f"{round(i, 1)} to {round((i + interval - 0.01), 2)}" for i in np.arange(min_value, max_value, interval)] + [major_value]
+        x_axis.insert(6, "0")
+        x_axis[1] = '-0.99 to -0.81'
+        x_axis[7] = '0.01 to 0.19'
+    elif min_value == -15:
+        x_axis = [minor_value] + [f"{round(i, 1)}% to {round((i + interval - 0.01), 2)}%" for i in np.arange(min_value, max_value, interval)] + [major_value]
         x_axis.insert(4, "0%")
         x_axis[5] = '0.01% to 4.99%'
-    elif jsonfile_name['min_value_graph'] == 0:    
-        x_axis[1] = '0.01% to 4.99%'
 
     y_axis = np.zeros(len(x_axis))
 
