@@ -14,6 +14,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from fixed_components import *
 import altair as alt
+import plotly.graph_objs as go
 
 def initialize_session_state():
     if 'key' not in st.session_state:
@@ -64,18 +65,18 @@ def create_question(jsonfile_name):
     major_value = str(jsonfile_name['major_value'])
 
     # Create a list of ranges based on the provided values
-    x_axis = [minor_value] + [f"{round(i, 1)} - {round((i + interval - 0.01), 2)}" for i in np.arange(min_value, max_value, interval)] + [major_value]
+    x_axis = [minor_value] + [f"{round(i, 1)}% to {round((i + interval - 0.01), 2)}%" for i in np.arange(min_value, max_value, interval)] + [major_value]
 
     # TODO find a way to remove it
     if jsonfile_name['min_value_graph'] == -1:
-        x_axis.insert(6, 0)
-        x_axis[1] = '-0.99 - -0.81'
-        x_axis[7] = '0.01 - 0.19'
+        x_axis.insert(6, "0%")
+        x_axis[1] = '-0.99% to -0.81%'
+        x_axis[7] = '0.01% to 0.19%'
     elif jsonfile_name['min_value_graph'] == -15:
-        x_axis.insert(4, 0)
-        x_axis[5] = '0.01 - 4.99'
+        x_axis.insert(4, "0%")
+        x_axis[5] = '0.01% to 4.99%'
     elif jsonfile_name['min_value_graph'] == 0:    
-        x_axis[1] = '0.01 - 4.99'
+        x_axis[1] = '0.01% to 4.99%'
 
     y_axis = np.zeros(len(x_axis))
 
@@ -89,27 +90,68 @@ def create_question(jsonfile_name):
         table, plot = st.columns([0.4, 0.6], gap="large")
         with table:
             bins_grid = st.data_editor(data, key= jsonfile_name['key'], hide_index=True, use_container_width=True, disabled=[jsonfile_name['column_1']])
-
             percentage_difference = 100 - sum(bins_grid[jsonfile_name['column_2']])
 
             # Display the counter
             if percentage_difference > 0:
-                st.write(f"**You still have to allocate {percentage_difference} percent probability.**")
+                missing_prob = f'<b style="font-family:sans-serif; color:Green; font-size: 20px; ">You still have to allocate {percentage_difference}% probability.</b>'
+                st.markdown(missing_prob, unsafe_allow_html=True)
+                
             elif percentage_difference == 0:
-                st.write(f'**You have allocated all probabilities!**')
+                total_prob = f'<b style="font-family:sans-serif; color:Green; font-size: 20px; ">You have allocated all probabilities!</b>'
+                st.markdown(total_prob, unsafe_allow_html=True)
             else:
-                st.write(f'**:red[You have inserted {abs(percentage_difference)} percent more, please review your percentage distribution.]**')           
-                  
+                exceeding_prob = f'<b style="font-family:sans-serif; color:Red; font-size: 20px; ">You have inserted {abs(percentage_difference)}% more, please review your percentage distribution.</b>'
+                st.markdown(exceeding_prob, unsafe_allow_html=True)
+                      
         with plot:
-            # TODO check performance difference with matplotlib
-            chart = alt.Chart(bins_grid).mark_bar().encode(
-                x=alt.X(jsonfile_name['column_1'], sort=None),
-                y=jsonfile_name['column_2']
-            )
+            # Extract the updated values from the second column
+            updated_values = bins_grid[jsonfile_name['column_2']]
 
-            st.altair_chart(chart, use_container_width=True)
-    
-    return pd.DataFrame(bins_grid), percentage_difference,  len(bins_grid)
+            # Plot the updated values as a bar plot
+            fig = go.Figure()
+            fig.add_trace(go.Bar(
+                x=bins_grid[jsonfile_name['column_1']], 
+                y=updated_values, 
+                marker_color='rgba(50, 205, 50, 0.9)',  # A nice bright green
+                marker_line_color='rgba(0, 128, 0, 1.0)',  # Dark green outline for contrast
+                marker_line_width=2,  # Width of the bar outline
+                text=[f"{p}" for p in bins_grid[jsonfile_name['column_2']]],  # Adding percentage labels to bars
+                textposition='auto',
+                name='Probability'
+            ))
+
+            fig.update_layout(
+                title={
+                    'text': "Probability distribution",
+                    'y':0.9,
+                    'x':0.5,
+                    'xanchor': 'center',
+                    'yanchor': 'top'
+                },
+                xaxis_title="Expectation Range",
+                yaxis_title="Probability (%)",
+                yaxis=dict(
+                    range=[0, 100], 
+                    gridcolor='rgba(255, 255, 255, 0.2)',  # Light grid on dark background
+                    showline=True,
+                    linewidth=2,
+                    linecolor='white',
+                    mirror=True
+                ),
+                xaxis=dict(
+                    tickangle=-45,
+                    showline=True,
+                    linewidth=2,
+                    linecolor='white',
+                    mirror=True
+                ),
+                font=dict(color='white'),  # White font color for readability
+            )
+            st.plotly_chart(fig)
+
+    return pd.DataFrame(bins_grid), percentage_difference, len(bins_grid)
+
 
 def effect_size_question(jsonfile_name):
     col1, _ = st.columns(2)
@@ -134,20 +176,13 @@ def RCT_questions():
     st.write('- Do you think allocating grants randomly amongst equally eligible potential beneficiaries is ethical? Did you think so before engaging in the RCT?')
     st.text_input('Please, write about your experience (max 500 characters).', max_chars=500, key = 'RCT_question6')
 
+def submit_action():
+    st.session_state["submit"] = True
+
 def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df):
 
     updated_bins_list = [updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df]
-    # Extracting the first row of each transposed dataframe as column names
-    #for i, transposed_df in enumerate(transposed_bins_list):
-    #    transposed_df.columns = column_names_list[i]
 
-    # Removing the first row (used as column names) from each dataframe
-    #transposed_bins_list = [transposed_df.iloc[1:] for transposed_df in transposed_bins_list]
-
-    # Adding prefix to column names of each dataframe
-    #for i, transposed_df in enumerate(transposed_bins_list):
-    #    prefix = f'Q{i + 1}  '
-    #    transposed_df.columns =  [f'{prefix}{col}' for col in transposed_df.columns]
 
     def restructure_df(df, i):
         transposed_df = df.transpose()
@@ -222,7 +257,7 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
 
     concatenated_df = pd.concat([personal_data_df, questions_df.set_index(personal_data_df.index), min_eff_df.set_index(personal_data_df.index)], axis=1)
     
-    st.session_state['submit'] = True
+    #submit_action()
     
     #save data to google sheet
     scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
@@ -233,7 +268,7 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     sheet = client.open("Survey answers: Romania Case").sheet1
 
     column_names_list = concatenated_df.columns.tolist()
-    #column_names = sheet.append_row(column_names_list)
+    column_names = sheet.append_row(column_names_list)
 
     sheet_row_update = sheet.append_rows(concatenated_df.values.tolist()) #.values.tolist())
     

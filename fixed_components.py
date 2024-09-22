@@ -12,6 +12,7 @@ import requests
 #from requests_oauthlib import OAuth2Session
 import csv
 import altair as alt
+import plotly.graph_objs as go
         
 # Insert consent
 def add_consent():
@@ -63,8 +64,6 @@ CAPTION_INSTRUCTIONS = '''As illustrated in the table, you predicted that there'
 
 def instructions():
 
-# Create some example data
-    
     st.subheader(TITLE_INSTRUCTIONS)
     st.write(SUBTITLE_INSTRUCTIONS)
 
@@ -76,9 +75,9 @@ def instructions():
     
     with table:
         # Create some example data as a Pandas DataFrame
-        values_column = ['< 15'] + list(range(16, 30)) + ['> 30']
+        values_column = ['< 20'] + list(range(21, 30)) + ['> 30']
         zeros_column = [0 for _ in values_column]
-        zeros_column[8:13] = [5, 15, 45, 20, 15]
+        zeros_column[4:9] = [5, 15, 45, 20, 15]
 
         data = {'Temperature': values_column, 'Probability': zeros_column}
         df = pd.DataFrame(data)
@@ -90,13 +89,46 @@ def instructions():
     st.write(CAPTION_INSTRUCTIONS)
 
     with plot:
-        # TODO check performance against matplotlib
-        chart = alt.Chart(df).mark_bar().encode(
-            x=alt.X('Temperature', sort=None),
-            y='Probability'
-        )
+        fig = go.Figure()
+        fig.add_trace(go.Bar(
+            x=values_column, 
+            y=df['Probability'], 
+            marker_color='rgba(50, 205, 50, 0.9)',  # A nice bright green
+            marker_line_color='rgba(0, 128, 0, 1.0)',  # Dark green outline for contrast
+            marker_line_width=2,  # Width of the bar outline
+            text=[f"{p}" for p in df['Probability']],  # Adding percentage labels to bars
+            textposition='auto',
+            name='Probability'
+        ))
 
-        st.altair_chart(chart, use_container_width=True)
+        fig.update_layout(
+            title={
+                'text': "Probability distribution",
+                'y':0.9,
+                'x':0.5,
+                'xanchor': 'center',
+                'yanchor': 'top'
+            },
+            xaxis_title="Expectation Range",
+            yaxis_title="Probability (%)",
+            yaxis=dict(
+                range=[0, 100], 
+                gridcolor='rgba(255, 255, 255, 0.2)',  # Light grid on dark background
+                showline=True,
+                linewidth=2,
+                linecolor='white',
+                mirror=True
+            ),
+            xaxis=dict(
+                tickangle=-45,
+                showline=True,
+                linewidth=2,
+                linecolor='white',
+                mirror=True
+            ),
+            font=dict(color='white'),  # White font color for readability
+        )
+        st.plotly_chart(fig)
     
 def submit(): 
     st.session_state['submit'] = True

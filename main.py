@@ -93,11 +93,19 @@ if st.session_state['consent']:
     
     # Submission button + saving data 
     if all(percentage == 0 for percentage in percentage_differences):
-        submit = st.button("Submit", on_click = add_submission, args = ([updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df]))
+        #submit = st.button("Submit", on_click = submit_action) #, args = ([updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df]))
+
+        if not st.session_state["submit"]:
+            if st.button("Submit"):
+                submit_action()
+                st.write("Saving your answers...")  # Example action
+        else:
+            st.write("You have already submitted!")  # Message after submission
 
     if st.session_state['submit']:
+        add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updated_bins_question_3_df, updated_bins_question_4_df, updated_bins_question_5_df, updated_bins_question_6_df, updated_bins_question_7_df, updated_bins_question_8_df, updated_bins_question_9_df, updated_bins_question_10_df)
         st.success(f"Thank you for completing the Survey on {config['header']['survey_title']}!")
-        # TODO add download button
-        #st.write("You can now download your answers as csv file.")
-        #concatenated_csv = convert_df(concatenated_df)
-        #st.download_button("Download here!", concatenated_csv, 'Foundational Digital Transformation in North-East Romania Survey Answers.csv')
+
+
+
+
