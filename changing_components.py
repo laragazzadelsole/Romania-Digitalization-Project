@@ -266,7 +266,7 @@ def add_submission(updated_bins_question_1_df, updated_bins_question_2_df, updat
     sheet = client.open("Survey answers: Romania Case").sheet1
 
     column_names_list = concatenated_df.columns.tolist()
-    column_names = sheet.append_row(column_names_list)
+    #column_names = sheet.append_row(column_names_list)
 
     sheet_row_update = sheet.append_rows(concatenated_df.values.tolist()) #.values.tolist())
     
